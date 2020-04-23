@@ -1,0 +1,47 @@
+
+/*=========================================================
+	08 -> PROFILE PAGE
+===========================================================*/
+
+/*----------------------------*\
+	ASIDE
+\*----------------------------*/
+
+.profile {
+  position: relative;
+  margin: 15px 0px;
+  -webkit-box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
+  box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+.profile .profile-img {
+  position: relative;
+  border: none;
+}
+.profile .profile-img>img {
+  width: 100%;
+}
+
+a.profile-menu.active{
+  color: white;
+  background-color: #f96332;
+  border-radius: 25px;
+  padding: 5px 20px;
+}
+
+ul.nav.category-menu {
+  margin-bottom: 20px;
+}
+
+a.profile-menu {
+  margin: 8px 0px;
+  text-transform: uppercase;
+  color: #f96332;
+  font-size: 15px;
+}
+
+h3.profile-title {
+  font-size: 20px;
+  font-weight: 500;
+}
