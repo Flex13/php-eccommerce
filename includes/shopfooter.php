@@ -33,6 +33,12 @@
 <!-- jQuery Plugins -->
 <script src="styles/jquery.min.js"></script>
 <script src="styles/bootstrap.min.js"></script>
+<script src="styles/shopstyle/js/jquery.min.js"></script>
+<script src="styles/shopstyle/js/bootstrap.min.js"></script>
+<script src="styles/shopstyle/js/slick.min.js"></script>
+<script src="styles/shopstyle/js/nouislider.min.js"></script>
+<script src="styles/shopstyle/js/jquery.zoom.min.js"></script>
+<script src="styles/shopstyle/js/main.js"></script>
 
 
 <!--   Core JS Files   -->

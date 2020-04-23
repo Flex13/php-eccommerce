@@ -86,6 +86,12 @@ if ((isset($_SESSION['id']) || isset($_GET['edit_account'])) && !isset($_POST['u
         if (empty($form_errors)) {
             try {
 
+                $ds = DIRECTORY_SEPARATOR;
+                $image_name = $username . ".jpg";
+                $path = "customer_images" . $ds . $image_name;
+
+
+
                 // create sql to insert into database
                 $update_customer = "UPDATE customers SET c_email=:email,c_firstname=:firstname,c_surname=:surname,c_contact=:contact,c_country=:country,c_province=:province,c_city=:city,c_image=:image WHERE id=:id";
 
@@ -95,8 +101,10 @@ if ((isset($_SESSION['id']) || isset($_GET['edit_account'])) && !isset($_POST['u
                 // Add the data into the database 
                 $statement->execute(array(':email' => $email, ':firstname' => $name, ':surname' => $surname, ':contact' => $contact, ':country' => $country, ':province' => $province, ':city' => $city, ':image' => $image, ':id' => $hidden_id));
 
+                move_uploaded_file($image_tmp, $path);
+
                 //Check is one data was created in database the echo result
-                if ($statement->rowcount() == 1 || uploadImage($username)) {
+                if ($statement->rowcount() == 1) {
                     $result = flashMEssage("Update Successfull", "Pass");
                 }
             } catch (PDOException $ex) {

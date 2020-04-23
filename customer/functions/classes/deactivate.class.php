@@ -38,7 +38,7 @@ if (isset($_POST['Yes'], $_POST['token'])) {
                                     <p>Dear ' . $firstname . '<br><br>You have requested to deactivate your account,
                                     your information will be kept for 14 days. If you wish to continue using Kasi Mall Online, login whithin 
                                     the next 14 days to reactivate your account or it will be permanently deleted.</p>
-                                    <p><a href="http://localhost:8080/login.php">Login</a></p>
+                                    <p><a href="https://bts-app.co.za/login.php">Login</a></p>
                                     <p><strong>&copy;2020 Kasi Mall online</strong></p>
                                     </body>
                                     </html>';
@@ -68,24 +68,19 @@ if (isset($_POST['Yes'], $_POST['token'])) {
         }
     } else {
         //Throw and error
-       
+
     }
-
-
-
-    
 }
 
 
 if (isset($_POST['No'], $_POST['token'])) {
 
     //Validate Token
-    if (validate_token($_POST['token'])) {//Proccess login Form
+    if (validate_token($_POST['token'])) { //Proccess login Form
         echo "<script>window.open('my_account.php?my_orders','_self')</script>";
     } else {
         $result = flashMessage("This request originates from an unknown source. Possible attack");
     }
-   
 }
 
 
