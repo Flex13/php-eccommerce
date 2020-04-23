@@ -43,8 +43,5 @@
     <meta property="og:image" content="" />
     <meta property="og:description" content="" />
     <meta property="og:site_name" content="" />
-    <!-- Sweet Aleart -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
-    <script src="styles/js/sweetalert.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/sweetalert.css" />
+    
 </head>

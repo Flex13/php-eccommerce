@@ -1,13 +1,10 @@
 
 
-<script src="styles/js/custom.js"></script>
+
 <!-- jQuery Plugins -->
-<script src="styles/shopstyle/js/jquery.min.js"></script>
-<script src="styles/shopstyle/js/bootstrap.min.js"></script>
-<script src="styles/shopstyle/js/slick.min.js"></script>
-<script src="styles/shopstyle/js/nouislider.min.js"></script>
-<script src="styles/shopstyle/js/jquery.zoom.min.js"></script>
-<script src="styles/shopstyle/js/main.js"></script>
+<script src="styles/jquery.min.js"></script>
+<script src="styles/bootstrap.min.js"></script>
+
 
 <!--   Core JS Files   -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
