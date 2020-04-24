@@ -50,17 +50,28 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-label">Contact Details</label>
                             <input type="text" name="Contact" size="32" maxlength="60" value="<?php if (isset($contact)) echo $contact; ?>" class="form-control" placeholder="Contact Details" />
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label>Date of Birth</label>
                             <input type="date" class="form-control" name="Date" max="2004-12-31">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select name="Gender" class="form-control">
+                                <option value="">Please Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                         </div>
                     </div>
 
@@ -107,7 +118,6 @@
                             <label>Confirm Password</label>
                             <input type="password" placeholder="Confirm Password" name="Password2" size="20" maxlength="20" id="psswd" class="input-psswd form-control" autocomplete="on" psswd-shown="false" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." />
                             <button type="button" class="button-psswd ">Show Password</button>
-
                         </div>
                     </div>
 

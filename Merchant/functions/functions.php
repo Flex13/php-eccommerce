@@ -139,7 +139,7 @@ function checkDuplicateUsername($username, $db) {
 function checkDuplicateEmail($email, $db) {
     try {
         //create SQL query
-        $query = "SELECT m_email FROM merchant WHERE m_email = :email";
+        $query = "SELECT c_email FROM customers WHERE c_email = :email";
         $statement = $db->prepare($query);
         $statement->execute(array(':email' => $email));
 
@@ -152,6 +152,7 @@ function checkDuplicateEmail($email, $db) {
         $result = flashMessage("An error occurred: ".$ex->getMessage());
     }
 }
+
 //function to remember me
 function rememberMe($user_id) {
     $encyptCookieData = base64_encode("KasiMallOnline{$user_id}");
@@ -227,6 +228,50 @@ function guard() {
     return $isValid;
 }
 
+function isValidImage($file){
+    //initialize an array to store error messages
+    $form_errors = array();
+
+    //split file name into an array using the dot (.)
+    $part = explode(".", $file);
+
+    //Target the last element in the array
+    $extention = end($part);
+
+    switch(strtolower($extention)) {
+
+        case 'jpg':
+        case 'gif':
+        case 'bmp':
+        case 'png':
+        case 'jpeg':
+
+            return $form_errors;
+    }
+
+    $form_errors[] = $extention . "is not a valid image extention";
+    return $form_errors;
+}
+
+function uploadImage($username) {
+
+    $isImageMoved = false;
+
+    if ($_FILES['Image']['tmp_name']) {
+        //file in the temp location
+        $tmp_file = $_FILES['Image']['tmp_name'];
+        $ds = DIRECTORY_SEPARATOR; 
+        $image_name = $username.".jpg";
+
+        $path = "customer_images". $ds . $image_name;
+
+        if (move_uploaded_file($tmp_file, $path)) {
+            $isImageMoved = true;
+        }
+    }
+    return $isImageMoved;
+}
+
 function _token() {
     $randomToken = base64_encode(openssl_random_pseudo_bytes(32));
 
@@ -242,35 +287,4 @@ function validate_token($request_token) {
     }
     return false;
 }
-
-function checkDuplicateEntries($table, $column_name, $value,$db) {
-    try {
-        $sqlquery = "SELECT * FROM $table WHERE $column_name = :$column_name";
-        $statement = $db->prepare($sqlquery);
-        $statement->execute(array(":column_name" => $value));
-
-        if($row = $statement->fetch()){
-            return true;
-        }
-        return false;
-    } catch (PDOException $ex) {
-        
-    }
-    }
-
-    function prepLogin($id,$email,$username) {
-        $_SESSION['id'] = $id;
-        $_SESSION['c_email'] = $email;
-        $_SESSION['c_username'] = $username;
-
-
-        $fingerprint = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
-        $_SESSION['last_active'] = time();
-        $_SSEION['fingerprint'] = $fingerprint;
-
-        
-        $result = flashMessage("Login Successful","Pass");
-        
-    }
-
 ?> 

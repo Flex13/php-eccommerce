@@ -27,6 +27,16 @@ else:
 
                 <!-- box Begin -->
                 <?php
+                    if (isset($_GET['login_merchant'])) {
+                        include("login_merchant.php");
+                    }
+                    ?>
+                    <?php
+                    if (isset($_GET['reg_merchant'])) {
+                        include("reg_merchant.php");
+                    }
+                    ?>
+                <?php
                     if (isset($_GET['my_orders'])) {
                         include("my_orders.php");
                     }

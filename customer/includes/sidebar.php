@@ -22,15 +22,20 @@
             </div>
 
             <ul class="nav nav-pills flex-column category-menu">
+            <li>
+                    <a class="profile-menu <?php if (isset($_GET['login_merchant'])) {
+                                                echo "active";
+                                            } ?>" href="my_account.php?login_merchant"><i class="fas fa-store-alt"></i> Shop Admin Login</a>
+                </li>
+                <li>
+                    <a class="profile-menu <?php if (isset($_GET['reg_merchant'])) {
+                                                echo "active";
+                                            } ?>" href="my_account.php?reg_merchant"><i class="fas fa-store-alt"></i> Register Shop</a>
+                </li>
                 <li>
                     <a class="profile-menu <?php if (isset($_GET['my_orders'])) {
                                                 echo "active";
                                             } ?>" href="my_account.php?my_orders"><i class="fa fa-list"></i> My Orders</a>
-                </li>
-                <li>
-                    <a class="profile-menu <?php if (isset($_GET['pay_offline'])) {
-                                                echo "active";
-                                            } ?>" href="my_account.php?pay_offline"><i class="fa fa-bolt"></i> Pay Offline</a>
                 </li>
                 <li>
                     <a class="profile-menu <?php if (isset($_GET['edit_account'])) {

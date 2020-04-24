@@ -686,8 +686,6 @@ header-links li a i {
 
 #navigation {
   background: #FFF;
-  border-bottom: 2px solid #E4E7ED;
-  border-top: 3px solid #D10024;
 }
 
 /*----------------------------*\
@@ -1609,6 +1607,7 @@ a.profile-menu {
   margin: 8px 0px;
   text-transform: uppercase;
   color: #f96332;
+  font-size: 15px;
 }
 
 h3.profile-title {
