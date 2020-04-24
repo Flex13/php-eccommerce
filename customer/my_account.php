@@ -5,7 +5,7 @@ session_start();
  if (!isset($_SESSION['c_email'])): 
 
     
-    echo "<script>window.open('../logout.php','_self')</script>";
+    echo "<script>window.open('../login.php','_self')</script>";
     
 else:
 ?>
@@ -90,5 +90,7 @@ else:
 
 
 <?php include('includes/shopfooter.php'); ?>
+
+
 
 <?php endif ?>

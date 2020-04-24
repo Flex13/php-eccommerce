@@ -44,8 +44,9 @@ if (isset($_POST['loginShop'], $_POST['token'])) {
                 $email = $row['m_email'];
                 $username = $row['m_username'];
                 $activated = $row['activated'];
+                $user_type = $row['user_type'];
 
-                if ($activated == "0") {
+                if ($activated == "0" ) {
                     //Check User in trash
                     $sqlQueryUser = "SELECT * FROM trash WHERE user_id = :id";
                     $statement = $db->prepare($sqlQueryUser);
@@ -63,14 +64,20 @@ if (isset($_POST['loginShop'], $_POST['token'])) {
                         $statement->execute(array(':id' => $id));
 
                         //Login User
-                        prepLogin($id, $email, $username);
+                        prepLogin($id, $email, $username,$user_type);
                     } else {
                         $result = flashMessage("Please activate your account to login. Contact Admin. ");
                     }
                 } else {
                     if (password_verify($password, $hashed_password)) {
-                        prepLogin($id, $email, $username);
-                        $result = flashMessage("Login Successful","Pass");
+                        if ($user_type = 'merchant') {
+                            prepLogin($id, $email, $username,$user_type);
+                            $result = flashMessage("Login Successful","Pass");
+                        } else {
+                            $result = flashMessage("You are not registered as a Merchant");
+                        }
+                        
+                        
                     } else {
                         $result = flashMessage("You have entered an invalid password");
                     }

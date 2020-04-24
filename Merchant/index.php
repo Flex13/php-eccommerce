@@ -1,3 +1,5 @@
+<?php if (isset($_SESSION['m_email']) && $_SESSION['user_type'] == 'merchant') : ?>
+
 <?php $page_title = 'Merchant - Kasi Mall Online'; ?>
 <?php include('includes/shopheader.php'); ?>
 <?php include('includes/navbar.php'); ?>
@@ -62,11 +64,10 @@
 </div>
 <!-- /SECTION -->
 
-
-
-
-
-
-
-
 <?php include('includes/shopfooter.php'); ?>
+
+<?php else : ?>
+
+    <?php echo "<script>window.open('../customer/my_account.php?login_merchant','_self')</script>"; ?>
+
+<?php endif ?>

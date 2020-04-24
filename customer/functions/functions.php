@@ -258,18 +258,17 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
     }
     }
 
-    function prepLogin($id,$email,$username) {
-        $_SESSION['id'] = $id;
-        $_SESSION['c_email'] = $email;
-        $_SESSION['c_username'] = $username;
+    function prepLogin($id,$email,$username,$user_type) {
+        $_SESSION['m_id'] = $id;
+        $_SESSION['m_email'] = $email;
+        $_SESSION['m_username'] = $username;
+        $_SESSION['user_type'] = $user_type;
 
 
         $fingerprint = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
         $_SESSION['last_active'] = time();
         $_SSEION['fingerprint'] = $fingerprint;
 
-        
-        $result = flashMessage("Login Successful","Pass");
     }
 
 ?> 

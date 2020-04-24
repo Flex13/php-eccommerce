@@ -22,16 +22,30 @@
             </div>
 
             <ul class="nav nav-pills flex-column category-menu">
-            <li>
-                    <a class="profile-menu <?php if (isset($_GET['login_merchant'])) {
-                                                echo "active";
-                                            } ?>" href="my_account.php?login_merchant"><i class="fas fa-store-alt"></i> Shop Admin Login</a>
-                </li>
-                <li>
-                    <a class="profile-menu <?php if (isset($_GET['reg_merchant'])) {
-                                                echo "active";
-                                            } ?>" href="my_account.php?reg_merchant"><i class="fas fa-store-alt"></i> Register Shop</a>
-                </li>
+
+                <?php if (isset($_SESSION['m_email']) && $_SESSION['user_type'] == 'merchant') : ?>
+
+                    <li>
+                        <a class="profile-menu <?php if (isset($_GET['login_merchant'])) {
+                                                    echo "active";
+                                                } ?>" href="../merchant/index.php?orders"><i class="fas fa-store-alt"></i> Shop Admin</a>
+                    </li>
+
+                <?php else : ?>
+
+                    <li>
+                        <a class="profile-menu <?php if (isset($_GET['login_merchant'])) {
+                                                    echo "active";
+                                                } ?>" href="my_account.php?login_merchant"><i class="fas fa-store-alt"></i> Shop Admin Login</a>
+                    </li>
+                    <li>
+                        <a class="profile-menu <?php if (isset($_GET['reg_merchant'])) {
+                                                    echo "active";
+                                                } ?>" href="my_account.php?reg_merchant"><i class="fas fa-store-alt"></i> Register Shop</a>
+                    </li>
+
+                <?php endif ?>
+
                 <li>
                     <a class="profile-menu <?php if (isset($_GET['my_orders'])) {
                                                 echo "active";
