@@ -270,7 +270,6 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
 
         
         $result = flashMessage("Login Successful","Pass");
-        
     }
 
 ?> 

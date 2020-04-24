@@ -52,6 +52,22 @@
                     <input type="address" name="Address" size="32" value="<?php if (isset($shopaddress)) echo $shopaddress; ?>" maxlength="100" class="form-control" placeholder="Shop City" />
                 </div>
 
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter Password" name="Password" size="20" maxlength="20" id="psswd" class="input-psswd form-control" autocomplete="on" psswd-shown="false" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." />
+                    <small>Please include at least 1 uppercase character, 1 lowercase character, and 1 number.</small>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="Confirm Password" name="Password2" size="20" maxlength="20" id="psswd" class="input-psswd form-control" autocomplete="on" psswd-shown="false" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." />
+                    <button type="button" class="button-psswd ">Show Password</button>
+                </div>
+
+
                 <input type="hidden" name="token" value="<?php if (function_exists('_token')) echo _token(); ?>">
                 <input type="hidden" name="hidden_id" value="<?php if (isset($id)) echo $id; ?>">
                 <div class="footer text-center">

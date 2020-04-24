@@ -9,10 +9,11 @@ html, body {
     color: black;
     font-size: 14px;
 }
+
 .card {
     background: rgba(255,255,255,0.7);
     justify-content: center;
-    width: 500px;
+    width: 700px;
     height: auto;
     border: none;
 }
@@ -180,6 +181,8 @@ button[type="button"] {
     color: red;
 
 }
+
+
 
 
 

@@ -12,14 +12,14 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
         $form_errors = array();
 
         //Form validation to be passed to function of check_empty_fields();
-        $required_fields = array( 'Name', 'Email', 'Contact', 'Province', 'City','Address');
+        $required_fields = array( 'Name', 'Email', 'Contact', 'Province', 'City','Address','Password');
 
         //call the function to check empty field and merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
 
 
         //Fields that requires checking for minimum length
-        $fields_to_check_length = array('Name' => 3, 'Contact' => 10);
+        $fields_to_check_length = array('Name' => 3, 'Contact' => 10, 'Password' => 6);
 
         //call the function to check minimum required length and merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));
@@ -38,12 +38,19 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
         $shopprovince           = $_POST['Province'];
         $shopcity               = $_POST['City'];
         $shopaddress               = $_POST['Address'];
+        $password           = $_POST['Password'];
+        $cpassword          = $_POST['Password2'];
         $date               = current_date();
 
         //CHeck Email exists 
          if (checkDuplicateEmail($email, $db)) {
             $result = flashMessage("Email Already Taken, please try another one");
-        }  else if (empty($form_errors)) {
+        } else if ($password != $cpassword) {
+            $result = flashMessage("Passwords to do not match, Please try again"); 
+        } else if (empty($form_errors)) {
+
+             //hash the password input
+             $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
             $sqlQuery = "SELECT * FROM customers WHERE id = :id";
             $statement = $db->prepare($sqlQuery);
@@ -56,8 +63,7 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
                 $surname = $rs['c_surname'];
                 $gender = $rs['c_gender'];
             }
-            //hash the password input
-            $shoppassword = base64_encode(openssl_random_pseudo_bytes(8));
+            
 
 
             try {
@@ -70,7 +76,7 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
                 $statement = $db->prepare($insert_merchant);
 
                 // Add the data into the database 
-                $statement->execute(array(':id' => $id, ':shopname' => $shopname,':username' => $username, ':email' => $shopemail, ':password' => $shoppassword, ':date' => $date, ':name' => $name, ':surname' => $surname, ':contact' => $shopcontact, ':gender' => $gender, ':province' => $shopprovince, ':city' => $shopcity, ':address' => $shopaddress));
+                $statement->execute(array(':id' => $id, ':shopname' => $shopname,':username' => $username, ':email' => $shopemail, ':password' => $password_hash, ':date' => $date, ':name' => $name, ':surname' => $surname, ':contact' => $shopcontact, ':gender' => $gender, ':province' => $shopprovince, ':city' => $shopcity, ':address' => $shopaddress));
 
                 //Check is one data was created in database the echo result
                 if ($statement->rowcount() == 1) {
@@ -84,21 +90,16 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
                                     line-height:1.8em;">
                 <h2>Kasi Mall Online - Shop Login Details</h2>
                 <p>Hi '.$name.' '.$surname.'<br><br>
-                 Welcome to Kasi Mall Online. Thank you for registering as a merchant. These are your login details. Please use them in the Account page to login to your Shop Admin</p><br><br>
-                <ul>
-                
-                <li>Shop Email '.$shopemail.'</li>
-                <li>Shop Password: '.$shoppassword.'</li>
-                </ul>
+                Welcome to Kasi Mall Online. Thank you for registering as a Merchant. Please Login and update your shop profile while we process your application. <br>
+                Once done with shop profile update. Your account will be activated.</p><br><br>
 
-                <p>Once you have logged in. Please update your shop profile password to be activated</p><br><br>
 
-                <p><a href="http://127.0.0.1:8080/custormer/my_account.php?login_merchant"> Login</a></p>
+                <p><a href="http://127.0.0.1:8080/customer/activate.php?id=' . $encode_id . '">Activate Shop Admin Account</a></p>
                 <p><strong>&copy;2020 Kasi Mall online</strong></p>
                 </body>
                 </html>';
 
-                    $mail->addAddress('sibanyebukani01@gmail.com', 'Kasi Admin');
+                    $mail->addAddress($email, $name);
                     $mail->Subject = " Shop Actvation";
                     $mail->Body = $mail_body;
 
@@ -106,7 +107,7 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
                     if (!$mail->Send()) {
                         $result = flashMessage(" Email sending failed: " . $mail->ErrorInfo . " ");
                     } else {
-                        $result = flashMessage("Registration Successful. Your Shop is being Process and will be activated whithn 24hrs", "Pass");
+                        $result = flashMessage("Registration Successful. Please check your email to activate your Shop Admin Account", "Pass");
                     }
                 }
             } catch (PDOException $ex) {

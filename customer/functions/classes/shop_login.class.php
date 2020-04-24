@@ -67,15 +67,10 @@ if (isset($_POST['loginShop'], $_POST['token'])) {
                     } else {
                         $result = flashMessage("Please activate your account to login. Contact Admin. ");
                     }
-                } else if (isset($_GET['login_merchant'])) {
-                    if ($password == $hashed_password) {
-                        prepLogin($id, $email, $username);
-                    } else {
-                        $result = flashMessage("You have entered an invalid password");
-                    }
                 } else {
                     if (password_verify($password, $hashed_password)) {
                         prepLogin($id, $email, $username);
+                        $result = flashMessage("Login Successful","Pass");
                     } else {
                         $result = flashMessage("You have entered an invalid password");
                     }
