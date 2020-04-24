@@ -1,32 +1,34 @@
-<?php 
+<?php
 
 session_start();
 
- if (!isset($_SESSION['c_email'])): 
+if (!isset($_SESSION['c_email'])) :
 
-    
+
     echo "<script>window.open('../login.php','_self')</script>";
-    
-else:
+
+else :
 ?>
-<?php $page_title = 'My Account - Kasi Mall'; ?>
-<?php include('includes/shopheader.php'); ?>
-<?php include('includes/navbar.php'); ?>
-<link rel="stylesheet" href="styles/style.css" />
+    <?php $page_title = 'My Account - Kasi Mall'; ?>
+    <?php include('includes/shopheader.php'); ?>
+    <?php include('includes/navbar.php'); ?>
+    <link rel="stylesheet" href="styles/style.css" />
 
-<!-- SECTION -->
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
 
-            <!-- STORE -->
-            <div id="store" class="col-md-9">
 
-                <!-- box Begin -->
-                <?php
+                <!-- STORE -->
+                <div id="store" class="col-md-9">
+
+                    <?php echo errorMessage(); ?><?php echo successMessage(); ?>
+
+                    <!-- box Begin -->
+                    <?php
                     if (isset($_GET['login_merchant'])) {
                         include("login_merchant.php");
                     }
@@ -36,7 +38,7 @@ else:
                         include("reg_merchant.php");
                     }
                     ?>
-                <?php
+                    <?php
                     if (isset($_GET['my_orders'])) {
                         include("my_orders.php");
                     }
@@ -60,27 +62,27 @@ else:
                     }
                     ?>
 
-<?php
+                    <?php
                     if (isset($_GET['delete_account'])) {
                         include("delete_account.php");
                     }
                     ?>
 
+                </div>
+                <!-- STORE END -->
+
+                <!-- ASIDE -->
+                <div id="aside" class="col-md-3">
+                    <?php include("includes/sidebar.php"); ?>
+
+                </div>
+
             </div>
-            <!-- STORE END -->
-
-            <!-- ASIDE -->
-            <div id="aside" class="col-md-3">
-            <?php include("includes/sidebar.php"); ?>
-
-            </div>
-
+            <!-- /row -->
         </div>
-        <!-- /row -->
+        <!-- /container -->
     </div>
-    <!-- /container -->
-</div>
-<!-- /SECTION -->
+    <!-- /SECTION -->
 
 
 
@@ -89,7 +91,7 @@ else:
 
 
 
-<?php include('includes/shopfooter.php'); ?>
+    <?php include('includes/shopfooter.php'); ?>
 
 
 

@@ -45,6 +45,8 @@ if (isset($_POST['login'], $_POST['token'])) {
                 $hashed_password = $row['c_password'];
                 $email = $row['c_email'];
                 $username = $row['c_username'];
+                $name = $row['c_firstname'];
+                $surname = $row['c_surname'];
                 $activated = $row['activated'];
 
                 if ($activated == "0") {
@@ -65,13 +67,13 @@ if (isset($_POST['login'], $_POST['token'])) {
                         $statement->execute(array(':id' => $id));
 
                         //Login User
-                        prepLogin($id, $email, $username, $remember);
+                        prepLogin($id,$email,$username,$remember,$name,$surname);
                     } else {
                         $result = flashMessage("Please activate your account to login. Contact Admin. ");
                     }
                 } else {
                     if (password_verify($password, $hashed_password)) {
-                        prepLogin($id, $email, $username, $remember);
+                        prepLogin($id,$email,$username,$remember,$name,$surname);
                     } else {
                         $result = flashMessage("You have entered an invalid password");
                     }

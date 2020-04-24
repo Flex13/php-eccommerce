@@ -51,6 +51,35 @@ Table OF Contents
 	01 -> GENERAL
 ===========================================================*/
 
+.error {
+	width: auto; 
+	margin: 5px; 
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgba(255, 54, 54, 0.8);
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 0;
+    color: #FFFFFF;
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+    position: relative;
+}
+.success {
+	width: auto; 
+	margin: 5px ; 
+	color: white;  
+	border-radius: 5px; 
+    text-align: center;
+    background-color: rgba(24, 206, 15, 0.8);
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 0;
+    color: #FFFFFF;
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+    position: relative;
+}
 /*----------------------------*\
 	Typography
 \*----------------------------*/

@@ -26,6 +26,8 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
+
+				
                     
 					<!-- shop -->
 					<div class="col-md-4 col-xs-6">

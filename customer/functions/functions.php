@@ -271,4 +271,28 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
 
     }
 
+    // Error Messages 
+function errorMessage() {
+
+    if(isset($_SESSION["errorMessage"])) {
+        $output = "<div class='alert  m-3 error text-center'>";
+        $output .= htmlentities($_SESSION['errorMessage']);
+        $output .= "</div>";
+        $_SESSION["errorMessage"] = null;
+        return $output;
+    }
+}
+
+//Success Messages
+
+function successMessage() {
+
+    if(isset($_SESSION["successMessage"])) {
+        $output = "<div class='alert m-3 success text-center'>";
+        $output .= htmlentities($_SESSION['successMessage']);
+        $output .= "</div>";
+        $_SESSION["successMessage"] = null;
+        return $output;
+    }
+}
 ?> 

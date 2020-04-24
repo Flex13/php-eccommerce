@@ -133,7 +133,7 @@ function flashMessage($message, $PassOrFail = "Fail") {
 
 //Function to redirect Page
 function redirectTo ($page) {
-    header ("location: {$page}.php");
+    header ("location: {$page}");
 }
 
 
@@ -281,10 +281,12 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
     }
     }
 
-    function prepLogin($id,$email,$username,$remember) {
+    function prepLogin($id,$email,$username,$remember,$name,$surname) {
         $_SESSION['id'] = $id;
         $_SESSION['c_email'] = $email;
         $_SESSION['c_username'] = $username;
+        $_SESSION['c_name'] = $name;
+        $_SESSION['c_surname'] = $surname;
 
 
         $fingerprint = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
@@ -295,7 +297,31 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
             rememberMe($id);
         }
         $result = flashMessage("Login Successful","Pass");
-        redirectTo('index');
+        $_SESSION["successMessage"] =  "Welcome ".$name." ".$surname. "";
+        redirectTo('customer/my_account.php?my_orders');
     }
 
-?> 
+    // Error Messages 
+function errorMessage() {
+
+    if(isset($_SESSION["errorMessage"])) {
+        $output = "<div class='alert error text-center'>";
+        $output .= htmlentities($_SESSION['errorMessage']);
+        $output .= "</div>";
+        $_SESSION["errorMessage"] = null;
+        return $output;
+    }
+}
+
+//Success Messages
+
+function successMessage() {
+
+    if(isset($_SESSION["successMessage"])) {
+        $output = "<div class='alert success text-center'>";
+        $output .= htmlentities($_SESSION['successMessage']);
+        $output .= "</div>";
+        $_SESSION["successMessage"] = null;
+        return $output;
+    }
+}
