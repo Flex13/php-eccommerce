@@ -1,30 +1,32 @@
 <?php
 
-if ((isset($_SESSION['id']) || isset($_GET['edit_account'])) && !isset($_POST['update'])) {
-    if (isset($_GET['edit_account'])) {
-        $url_encoded_id = $_GET['edit_account'];
+if ((isset($_SESSION['m_id']) || isset($_GET['s_details'])) && !isset($_POST['updateShop'])) {
+    if (isset($_GET['s_details'])) {
+        $url_encoded_id = $_GET['s_details'];
         $decode_id = base64_decode($url_encoded_id);
         $user_id_array = explode("encodeuserid", $decode_id);
-        $id = $user_id_array[1];
+        $shop_id = $user_id_array[1];
     } else {
-        $id = $_SESSION['id'];
+        $shop_id = $_SESSION['m_id'];
     }
 
-    $sqlQuery = "SELECT * FROM customers WHERE id = :id";
+    $sqlQuery = "SELECT * FROM merchant WHERE m_id = :id";
     $statement = $db->prepare($sqlQuery);
-    $statement->execute(array('id' => $id));
+    $statement->execute(array('id' => $shop_id));
 
     while ($rs = $statement->fetch()) {
-        $username = $rs['c_username'];
-        $email = $rs['c_email'];
-        $name = $rs['c_firstname'];
-        $surname = $rs['c_surname'];
-        $contact = $rs['c_contact'];
-        $country = $rs['c_country'];
-        $province = $rs['c_province'];
-        $city = $rs['c_city'];
-        $image = $rs['c_image'];
-        $date_joined = strftime("%b %d, %Y", strtotime($rs['c_reg_date']));
+        $shop_id = $rs['m_id'];
+        $shop_name = $rs['m_shop_name'];
+        $shop_owner_username = $rs['m_username'];
+        $shop_email = $rs['m_email'];
+        $shop_owner_name = $rs['m_name'];
+        $shop_owner_surname = $rs['m_surname'];
+        $shop_contact = $rs['m_contact'];
+        $shop_country = $rs['m_country'];
+        $shop_province = $rs['m_province'];
+        $shop_city = $rs['m_city'];
+        $shop_image = $rs['m_image'];
+        $shop_date_joined = strftime("%b %d, %Y", strtotime($rs['m_reg_date']));
     }
 
     $customer_pic = "customer_images/" . $username . ".jpg";
@@ -35,8 +37,8 @@ if ((isset($_SESSION['id']) || isset($_GET['edit_account'])) && !isset($_POST['u
     } else {
         $profile_picture = $default;
     }
-    $encode_id = base64_encode("encodeuserid{$id}");
-} else if (isset($_POST['update'], $_POST['token'])) {
+    $shop_encode_id = base64_encode("encodeuserid{$shop_id}");
+} else if (isset($_POST['updateShop'], $_POST['token'])) {
 
     //Validate Token
     if (validate_token($_POST['token'])) { //Proccess login Form
@@ -45,13 +47,13 @@ if ((isset($_SESSION['id']) || isset($_GET['edit_account'])) && !isset($_POST['u
         $form_errors = array();
 
         //Form validation to be passed to function of check_empty_fields();
-        $required_fields = array('Name', 'Surname', 'Email', 'Contact', 'Country', 'Province', 'City');
+        $required_fields = array('Name','Email', 'Contact', 'Province', 'City');
 
         //call the function to check empty field and merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
 
         //Fields that requires checking for minimum length
-        $fields_to_check_length = array('Name' => 3, 'Surname' => 3, 'Contact' => 10);
+        $fields_to_check_length = array('Name' => 3, 'Contact' => 10);
 
         //call the function to check minimum required length and merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));
@@ -59,43 +61,40 @@ if ((isset($_SESSION['id']) || isset($_GET['edit_account'])) && !isset($_POST['u
         //email validation / merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_email($_POST));
 
-        
 
 
 
         // Get all records from inputs
-        $username         = $_POST['hidden_username'];
-        $name         = $_POST['Name'];
-        $surname            = $_POST['Surname'];
-        $email         = $_POST['Email'];
-        $contact         = $_POST['Contact'];
-        $country         = $_POST['Country'];
-        $province         = $_POST['Province'];
-        $city         = $_POST['City'];
-        $hidden_id         = $_POST['hidden_id'];
-        $image         = $_FILES['Image']['name'];
-        $image_tmp         = $_FILES['Image']['tmp_name'];
+        $shop_owner_username         = $_POST['hidden_shop_username'];
+        $shop_name         = $_POST['Name'];
+        $shop_email         = $_POST['Email'];
+        $shop_contact         = $_POST['Contact'];
+        $shop_province         = $_POST['Province'];
+        $shop_city         = $_POST['City'];
+        $shop_hidden_id         = $_POST['hidden_shop_id'];
+        $shop_image         = $_FILES['shop_image']['name'];
+        $shop_image_tmp         = $_FILES['shop_image']['tmp_name'];
 
 
         if (empty($form_errors)) {
             try {
 
                 $ds = DIRECTORY_SEPARATOR;
-                $image_name = $username . ".jpg";
-                $path = "customer_images" . $ds . $image_name;
+                $shop_image_name = $shop_owner_username . ".jpg";
+                $path = "customer_images" . $ds . $shop_image_name;
 
 
 
                 // create sql to insert into database
-                $update_customer = "UPDATE customers SET c_email=:email,c_firstname=:firstname,c_surname=:surname,c_contact=:contact,c_country=:country,c_province=:province,c_city=:city,c_image=:image WHERE id=:id";
+                $update_customer = "UPDATE merchant SET m_email=:email,m_shop_name=:shopname,m_contact=:contact,m_province=:province,m_city=:city,m_image=:image WHERE m_id=:id";
 
                 // use PDO to prepare and sanitize the data
                 $statement = $db->prepare($update_customer);
 
                 // Add the data into the database 
-                $statement->execute(array(':email' => $email, ':firstname' => $name, ':surname' => $surname, ':contact' => $contact, ':country' => $country, ':province' => $province, ':city' => $city, ':image' => $image, ':id' => $hidden_id));
+                $statement->execute(array(':email' => $shop_email, ':shopname' => $shop_name, ':contact' => $shop_contact, ':province' => $shop_province, ':city' => $shop_city, ':image' => $shop_image, ':id' => $shop_hidden_id));
 
-                move_uploaded_file($image_tmp, $path);
+                move_uploaded_file($shop_image_tmp, $path);
 
                 //Check is one data was created in database the echo result
                 if ($statement->rowcount() == 1) {

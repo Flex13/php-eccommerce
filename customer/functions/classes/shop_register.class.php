@@ -12,7 +12,7 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
         $form_errors = array();
 
         //Form validation to be passed to function of check_empty_fields();
-        $required_fields = array( 'Name', 'Email', 'Contact', 'Province', 'City','Address','Password');
+        $required_fields = array( 'Name', 'Email', 'Contact', 'Province', 'City','Password');
 
         //call the function to check empty field and merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
@@ -32,36 +32,35 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
 
         // Get all records from inputs
         $user_hidden_id         = $_POST['hidden_id'];
-        $shopname               = $_POST['Name'];
-        $shopemail              = $_POST['Email'];
-        $shopcontact            = $_POST['Contact'];
-        $shopprovince           = $_POST['Province'];
-        $shopcity               = $_POST['City'];
-        $shopaddress               = $_POST['Address'];
-        $password           = $_POST['Password'];
-        $cpassword          = $_POST['Password2'];
-        $date               = current_date();
+        $shop_name               = $_POST['Name'];
+        $shop_email              = $_POST['Email'];
+        $shop_contact            = $_POST['Contact'];
+        $shop_province           = $_POST['Province'];
+        $shop_city               = $_POST['City'];
+        $shop_password           = $_POST['Password'];
+        $shop_cpassword          = $_POST['Password2'];
+        $shop_date               = current_date();
 
         //CHeck Email exists 
-         if (checkDuplicateEmail($email, $db)) {
+         if (checkDuplicateShopEmail($shop_email, $db)) {
             $result = flashMessage("Email Already Taken, please try another one");
-        } else if ($password != $cpassword) {
+        } else if ($shop_password != $shop_cpassword) {
             $result = flashMessage("Passwords to do not match, Please try again"); 
         } else if (empty($form_errors)) {
 
              //hash the password input
-             $password_hash = password_hash($password, PASSWORD_DEFAULT);
+             $shop_password_hash = password_hash($shop_password, PASSWORD_DEFAULT);
 
             $sqlQuery = "SELECT * FROM customers WHERE id = :id";
             $statement = $db->prepare($sqlQuery);
             $statement->execute(array('id' => $user_hidden_id));
         
             while ($rs = $statement->fetch()) {
-                $id = $rs['id'];
-                $username = $rs['c_username'];
-                $name = $rs['c_firstname'];
-                $surname = $rs['c_surname'];
-                $gender = $rs['c_gender'];
+                $shop_owner_user_id = $rs['id'];
+                $shop_owner_username = $rs['c_username'];
+                $shop_owner_name = $rs['c_firstname'];
+                $shop_owner_surname = $rs['c_surname'];
+                $shop_owner_gender = $rs['c_gender'];
             }
             
 
@@ -69,37 +68,37 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
             try {
 
                 // create sql to insert into database
-                $insert_merchant = "INSERT INTO merchant (user_id,m_shop_name,m_username,m_email,m_password,m_reg_date,m_name,m_surname,m_contact,m_gender,m_province,m_city,m_address)
-            VALUES (:id,:shopname,:username,:email,:password,:date,:name,:surname,:contact,:gender,:province,:city,:address)";
+                $insert_merchant = "INSERT INTO merchant (user_id,m_shop_name,m_username,m_email,m_password,m_reg_date,m_name,m_surname,m_contact,m_gender,m_province,m_city)
+            VALUES (:id,:shopname,:username,:email,:password,:date,:name,:surname,:contact,:gender,:province,:city)";
 
                 // use PDO to prepare and sanitize the data
                 $statement = $db->prepare($insert_merchant);
 
                 // Add the data into the database 
-                $statement->execute(array(':id' => $id, ':shopname' => $shopname,':username' => $username, ':email' => $shopemail, ':password' => $password_hash, ':date' => $date, ':name' => $name, ':surname' => $surname, ':contact' => $shopcontact, ':gender' => $gender, ':province' => $shopprovince, ':city' => $shopcity, ':address' => $shopaddress));
+                $statement->execute(array(':id' => $shop_owner_user_id, ':shopname' => $shop_name,':username' => $shop_owner_username, ':email' => $shop_email, ':password' => $shop_password_hash, ':date' => $shop_date, ':name' => $shop_owner_name, ':surname' => $shop_owner_surname, ':contact' => $shop_contact, ':gender' => $shop_owner_gender, ':province' => $shop_province, ':city' => $shop_city));
 
                 //Check is one data was created in database the echo result
                 if ($statement->rowcount() == 1) {
 
-                    $user_id = $db->lastInsertId();
-                    $encode_id = base64_encode("encodeuserid{$user_id}");
+                    $shop_id = $db->lastInsertId();
+                    $shop_encode_id = base64_encode("encodeuserid{$shop_id}");
 
                     //prepare email body
                     $mail_body = '<html>
                 <body style="background-color:#CCCCCC; color:#000; font-family: Arial, Helvetica, sans-serif;
                                     line-height:1.8em;">
                 <h2>Kasi Mall Online - Shop Login Details</h2>
-                <p>Hi '.$name.' '.$surname.'<br><br>
+                <p>Hi '.$shop_owner_name.' '.$shop_owner_surname.'<br><br>
                 Welcome to Kasi Mall Online. Thank you for registering as a Merchant. Please Login and update your shop profile while we process your application. <br>
                 Once done with shop profile update. Your account will be activated.</p><br><br>
 
 
-                <p><a href="http://127.0.0.1:8080/customer/activate.php?id=' . $encode_id . '">Activate Shop Admin Account</a></p>
+                <p><a href="http://127.0.0.1:8080/customer/activate.php?id=' . $shop_encode_id . '">Activate Shop Admin Account</a></p>
                 <p><strong>&copy;2020 Kasi Mall online</strong></p>
                 </body>
                 </html>';
 
-                    $mail->addAddress($email, $name);
+                    $mail->addAddress($shop_email, $shop_owner_name);
                     $mail->Subject = " Shop Actvation";
                     $mail->Body = $mail_body;
 
@@ -125,28 +124,6 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
     }
 
 
-    //activation
-} else if (isset($_GET['id'])) {
-    $encoded_id = $_GET['id'];
-    $decode_id = base64_decode($encoded_id);
-    $user_id_array = explode("encodeuserid", $decode_id);
-    $id = $user_id_array[1];
-
-
-
-
-    $sql = "UPDATE customers SET activated=:activated WHERE id=:id AND activated='0'";
-
-    $statement = $db->prepare($sql);
-    $statement->execute(array(':activated' => "1", ':id' => $id));
-
-    if ($statement->rowCount() == 1) {
-        $result = '<h2>Email Confirmed </h2>
-    <p>Your email address has been verified, you can now <a href="login.php">login</a> with your email and password.</p>';
-    } else {
-        $result = "<p class='lead'>No changes made please contact site admin,
-        if you have not confirmed your email before</p>";
-    }
 }
 
 

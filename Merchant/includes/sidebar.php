@@ -3,7 +3,7 @@
     <h3 class="aside-title">Shop Profile</h3>
         <div class="profile">
             <div class="profile-img">
-                <img src="<?php if (isset($profile_picture)) echo $profile_picture; ?>" class="img img-thumbnail" alt="Customer Profile Picture">
+                <img src="uploads/shops.jpg" class="img img-thumbnail" alt="Customer Profile Picture">
             </div>
         </div>
 

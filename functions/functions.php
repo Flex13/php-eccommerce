@@ -221,6 +221,9 @@ function signout() {
     unset($_SESSION['íd']);
     unset($_SESSION['ç_username']);
     unset($_SESSION['c_email']);
+    unset($_SESSION['m_íd']);
+    unset($_SESSION['m_username']);
+    unset($_SESSION['m_email']);
 
     if(isset($_COOKIE['rememberUserCookie'])) {
         unset($_COOKIE['rememberUserCookie']);

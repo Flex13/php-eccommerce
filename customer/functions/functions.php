@@ -136,12 +136,12 @@ function checkDuplicateUsername($username, $db) {
 }
 
 //Function to check Email
-function checkDuplicateEmail($email, $db) {
+function checkDuplicateShopEmail($shop_email, $db) {
     try {
         //create SQL query
         $query = "SELECT m_email FROM merchant WHERE m_email = :email";
         $statement = $db->prepare($query);
-        $statement->execute(array(':email' => $email));
+        $statement->execute(array(':email' => $shop_email));
 
         if ($row = $statement->fetch()){
             return true;
@@ -258,20 +258,20 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
     }
     }
 
-    function prepLogin($id,$email,$username,$user_type,$name,$surname) {
-        $_SESSION['m_id'] = $id;
-        $_SESSION['m_email'] = $email;
-        $_SESSION['m_username'] = $username;
-        $_SESSION['user_type'] = $user_type;
-        $_SESSION['m_name'] = $name;
-        $_SESSION['m_surname'] = $surname;
+    function prepLogin($shop_id, $shop_email, $shop_owner_username,$shop_user_type,$shop_owner_name,$shop_owner_surname) {
+        $_SESSION['m_id'] = $shop_id;
+        $_SESSION['m_email'] = $shop_email;
+        $_SESSION['m_username'] = $shop_owner_username;
+        $_SESSION['user_type'] = $shop_user_type;
+        $_SESSION['m_name'] = $shop_owner_name;
+        $_SESSION['m_surname'] = $shop_owner_surname;
         
 
 
         $fingerprint = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
         $_SESSION['last_active'] = time();
         $_SSEION['fingerprint'] = $fingerprint;
-        $_SESSION["successMessage"] =  "Welcome ".$name." ".$surname. "to Shop Admin Dashboard";
+        $_SESSION["successMessage"] =  "Welcome ".$shop_owner_name." ".$shop_owner_surname. "to Shop Admin Dashboard";
         echo "<script>window.open('../merchant/index.php?orders','_self')</script>";
     }
     

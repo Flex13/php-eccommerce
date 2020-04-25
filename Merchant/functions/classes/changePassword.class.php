@@ -1,7 +1,7 @@
 <?php
 
 
-if (isset($_POST['changePassword'], $_POST['token'])) {
+if (isset($_POST['changeOwnerPassword'], $_POST['token'])) {
 
     //Validate Token
     if (validate_token($_POST['token'])) { //Proccess login Form
@@ -28,44 +28,44 @@ if (isset($_POST['changePassword'], $_POST['token'])) {
 
         if (empty($form_errors)) {
             // Get all records from inputs
-            $oldpassword        = $_POST['Old-Password'];
-            $newpassword         = $_POST['New-Password'];
-            $confirmpassword            = $_POST['Confirm-Password'];
-            $id =                 $_POST['hidden_id'];
+            $shop_oldpassword        = $_POST['Old-Password'];
+            $shop_newpassword         = $_POST['New-Password'];
+            $shop_confirmpassword            = $_POST['Confirm-Password'];
+            $shop_id =                 $_POST['hidden_shop_id'];
 
-            if ($newpassword != $confirmpassword) {
+            if ($shop_newpassword != $shop_confirmpassword) {
                 $result = flashMEssage("New Password does not match confirm Confirm Password");
             } else {
                 try {
 
                     //check current password matches in database
-                    $sqlQuery = "SELECT c_password FROM customers WHERE id = :id";
+                    $sqlQuery = "SELECT m_password FROM merchant WHERE m_id = :id";
 
                     // use PDO to prepare and sanitize the data
                     $statement = $db->prepare($sqlQuery);
 
                     // Add the data into the database 
-                    $statement->execute(array(':id' => $id));
+                    $statement->execute(array(':id' => $shop_id));
 
 
                     //check if row exists in database
                     if ($row = $statement->fetch()) {
-                        $password_from_db = $row['c_password'];
+                        $shop_password_from_db = $row['m_password'];
 
                         //check password with the one in database
-                        if (password_verify($oldpassword, $password_from_db)) {
+                        if (password_verify($shop_oldpassword, $shop_password_from_db)) {
                             //if true process the form
                             //hash the new password
 
-                            $hashed_password = password_hash($newpassword, PASSWORD_DEFAULT);
+                            $shop_hashed_password = password_hash($shop_newpassword, PASSWORD_DEFAULT);
                             //check current password matches in database
-                            $sqlQuery = "UPDATE customers SET c_password = :password WHERE id = :id";
+                            $sqlQuery = "UPDATE merchant SET m_password = :password WHERE m_id = :id";
 
                             // use PDO to prepare and sanitize the data
                             $statement = $db->prepare($sqlQuery);
 
                             // Add the data into the database 
-                            $statement->execute(array(':password' => $hashed_password, ':id' => $id));
+                            $statement->execute(array(':password' => $shop_hashed_password, ':id' => $shop_id));
 
                             if ($statement->rowcount() === 1){
                                 $result = flashMessage("Password Updated Successfully", "Pass");

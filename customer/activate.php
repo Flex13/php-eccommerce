@@ -1,6 +1,7 @@
 <?php $page_title = 'Account Shop Activated - Kasi Mall'; ?>
 <?php include_once('includes/header.php'); ?>
 
+
 <section class="container card-show">
     <center>
         <div class="card card1 card-spacing">

@@ -1,18 +1,17 @@
 <?php
+
 //activation
 if (isset($_GET['id'])) {
-    $encoded_id = $_GET['id'];
-    $decode_id = base64_decode($encoded_id);
-    $user_id_array = explode("encodeuserid", $decode_id);
-    $id = $user_id_array[1];
-
-
+    $shop_encoded_id = $_GET['id'];
+    $shop_decode_id = base64_decode($shop_encoded_id);
+    $shop_id_array = explode("encodeuserid", $shop_decode_id);
+    $shop_id = $shop_id_array[1];
 
 
     $sql = "UPDATE merchant SET activated=:activated WHERE m_id=:id AND activated='0'";
 
     $statement = $db->prepare($sql);
-    $statement->execute(array(':activated' => "1", ':id' => $id));
+    $statement->execute(array(':activated' => "1", ':id' => $shop_id));
 
     if ($statement->rowCount() == 1) {
         $result = '<h2>Email Confirmed </h2>

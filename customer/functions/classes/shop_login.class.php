@@ -27,53 +27,53 @@ if (isset($_POST['loginShop'], $_POST['token'])) {
 
         if (empty($form_errors)) {
             //collect form data
-            $email = $_POST['Email'];
-            $password = $_POST['Password'];
+            $shop_email = $_POST['Email'];
+            $shop_password = $_POST['Password'];
 
 
             //check if user exist in the database
             $sqlQuery = "SELECT * FROM merchant WHERE m_email = :email";
             $statement = $db->prepare($sqlQuery);
-            $statement->execute(array(':email' => $email));
+            $statement->execute(array(':email' => $shop_email));
 
 
 
             if ($row = $statement->fetch()) {
-                $id = $row['m_id'];
-                $hashed_password = $row['m_password'];
-                $email = $row['m_email'];
-                $username = $row['m_username'];
-                $activated = $row['activated'];
-                $user_type = $row['user_type'];
-                $name = $row['m_name'];
-                $surname = $row['m_surname'];
+                $shop_id = $row['m_id'];
+                $shop_hashed_password = $row['m_password'];
+                $shop_email = $row['m_email'];
+                $shop_owner_username = $row['m_username'];
+                $shop_activated = $row['activated'];
+                $shop_user_type = $row['user_type'];
+                $shop_owner_name = $row['m_name'];
+                $shop_owner_surname = $row['m_surname'];
 
-                if ($activated == "0" ) {
+                if ($shop_activated == "0" ) {
                     //Check User in trash
-                    $sqlQueryUser = "SELECT * FROM trash WHERE user_id = :id";
+                    $sqlQueryUser = "SELECT * FROM trash WHERE m_id = :id";
                     $statement = $db->prepare($sqlQueryUser);
-                    $statement->execute(array(':id' => $id));
+                    $statement->execute(array(':id' => $shop_id));
 
                     if ($row = $statement->fetch()) {
                         //Activate Account
-                        $sqlActivateUser = "UPDATE merchant SET activated = '1' WHERE id = :id LIMIT 1";
+                        $sqlActivateUser = "UPDATE merchant SET activated = '1' WHERE m_id = :id LIMIT 1";
                         $statement = $db->prepare($sqlActivateUser);
-                        $statement->execute(array(':id' => $id));
+                        $statement->execute(array(':id' => $shop_id));
 
-                        //Remove USer From Trash
-                        $sqlRemoveUser =  "DELETE FROM trash WHERE user_id = :id LIMIT 1";
+                        //Remove User From Trash
+                        $sqlRemoveUser =  "DELETE FROM trash WHERE m_id = :id LIMIT 1";
                         $statement = $db->prepare($sqlRemoveUser);
-                        $statement->execute(array(':id' => $id));
+                        $statement->execute(array(':id' => $shop_id));
 
                         //Login User
-                        prepLogin($id, $email, $username,$user_type,$name,$surname);
+                        prepLogin($shop_id, $shop_email, $shop_owner_username,$shop_user_type,$shop_owner_name,$shop_owner_surname);
                     } else {
                         $result = flashMessage("Please activate your account to login. Contact Admin. ");
                     }
                 } else {
-                    if (password_verify($password, $hashed_password)) {
-                        if ($user_type = 'merchant') {
-                            prepLogin($id, $email, $username,$user_type,$name,$surname);
+                    if (password_verify($shop_password, $shop_hashed_password)) {
+                        if ($shop_user_type = 'merchant') {
+                            prepLogin($shop_id, $shop_email, $shop_owner_username,$shop_user_type,$shop_owner_name,$shop_owner_surname);
                         } else {
                             $result = flashMessage("You are not registered as a Merchant");
                         }

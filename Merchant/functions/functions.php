@@ -180,6 +180,7 @@ function isCookieValid($db) {
             $id = $row['id'];
             $username = $row['c_username'];
 
+            
             //Create User session Variables
             $_SESSION['id'] = $id;
             $_SESSION['c_username'] = $username;
@@ -195,9 +196,10 @@ function isCookieValid($db) {
 }
 
 function signout() {
-    unset($_SESSION['íd']);
-    unset($_SESSION['ç_username']);
-    unset($_SESSION['c_email']);
+    unset($_SESSION['m_íd']);
+    unset($_SESSION['m_username']);
+    unset($_SESSION['m_email']);
+    unset($_SESSION['user_type']);
 
     if(isset($_COOKIE['rememberUserCookie'])) {
         unset($_COOKIE['rememberUserCookie']);
@@ -206,7 +208,7 @@ function signout() {
 
     session_destroy();
     session_regenerate_id(true);
-    redirectTO('index.php');
+    redirectTO('../customer/my_account.php?login_merchant');
 }
 
 function guard() {

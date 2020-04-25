@@ -13,17 +13,17 @@
 
                 <div class="form-group">
                     <label class="form-label">Shop Name</label>
-                    <input type="text" name="Name" size="32" maxlength="60" value="<?php if (isset($shopname)) echo $shopname; ?>" class="form-control" placeholder="Shop Name" />
+                    <input type="text" name="Name" size="32" maxlength="60" value="<?php if (isset($shop_name)) echo $shop_name; ?>" class="form-control" placeholder="Shop Name" />
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Shop Email</label>
-                    <input type="text" name="Email" size="32" value="<?php if (isset($shopemail)) echo $shopemail; ?>" maxlength="60" class="form-control" placeholder="Shop Email" />
+                    <input type="text" name="Email" size="32" value="<?php if (isset($shop_email)) echo $shop_email; ?>" maxlength="60" class="form-control" placeholder="Shop Email" />
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Shop Contact Details</label>
-                    <input type="text" name="Contact" size="32" maxlength="60" value="<?php if (isset($shopcontact)) echo $shopcontact; ?>" class="form-control" placeholder="Shop Contact Details" />
+                    <input type="text" name="Contact" size="32" maxlength="60" value="<?php if (isset($shop_contact)) echo $shop_contact; ?>" class="form-control" placeholder="Shop Contact Details" />
                 </div>
 
                 <div class="form-group">
@@ -44,12 +44,7 @@
 
                 <div class="form-group">
                     <label class="form-label">Shop City</label>
-                    <input type="text" name="City" size="32" value="<?php if (isset($shopcity)) echo $shopcity; ?>" maxlength="100" class="form-control" placeholder="Shop City" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Shop Address</label>
-                    <input type="address" name="Address" size="32" value="<?php if (isset($shopaddress)) echo $shopaddress; ?>" maxlength="100" class="form-control" placeholder="Shop City" />
+                    <input type="text" name="City" size="32" value="<?php if (isset($shop_city)) echo $shop_city; ?>" maxlength="100" class="form-control" placeholder="Shop City" />
                 </div>
 
 

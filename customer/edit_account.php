@@ -28,14 +28,14 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label class="form-label">Email</label>
-                <input type="text" name="Email" size="32" value="<?php if(isset($email)) echo $email; ?>" maxlength="60" class="form-control" placeholder="Email" />
+                <input type="email" name="Email" size="32" value="<?php if(isset($email)) echo $email; ?>" maxlength="60" class="form-control" placeholder="Email" />
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
                 <label class="form-label">Contact Details</label>
-                <input type="text" name="Contact" size="32" maxlength="60" value="<?php if(isset($contact)) echo $contact; ?>" class="form-control" placeholder="Contact Details" />
+                <input type="tel" name="Contact" size="32" maxlength="60" value="<?php if(isset($contact)) echo $contact; ?>" class="form-control" placeholder="Contact Details" />
             </div>
         </div>
 
