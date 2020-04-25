@@ -7,7 +7,7 @@ include("functions/functions.php");
 ?>
 <?php if (isset($_SESSION['c_email'])) : ?>
 
-    <?php $page_title = 'My Account - Kasi Mall'; ?>
+    <?php $page_title = 'My Account - Kasi Mall Online'; ?>
     <?php include('includes/shopheader.php'); ?>
     <?php include('includes/navbar.php'); ?>
     <link rel="stylesheet" href="styles/style.css" />

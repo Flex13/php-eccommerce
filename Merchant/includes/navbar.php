@@ -63,11 +63,21 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav mx-auto">
 
-                        <li><a href="index.php?category">Categories</a></li>
-                        <li><a href="index.php?products">Products</a></li>
-                        <li><a href="index.php?orders">Orders</a></li>
-                        <li><a href="index.php?customers">Customers</a></li>
-                        <li><a href="index.php?reviews">Reviews</a></li>
+                        <li><a class="<?php if (isset($_GET['category'])) {
+                                                    echo "active";
+                                                } ?>" href="index.php?category">Categories</a></li>
+                        <li><a class="<?php if (isset($_GET['products'])) {
+                                                    echo "active";
+                                                } ?>" href="index.php?products">Products</a></li>
+                        <li><a class="<?php if (isset($_GET['orders'])) {
+                                                    echo "active";
+                                                } ?>" href="index.php?orders">Orders</a></li>
+                        <li><a class="<?php if (isset($_GET['customers'])) {
+                                                    echo "active";
+                                                } ?>" href="index.php?customers">Customers</a></li>
+                        <li><a class="<?php if (isset($_GET['reviews'])) {
+                                                    echo "active";
+                                                } ?>" href="index.php?reviews">Reviews</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>

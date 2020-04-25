@@ -451,6 +451,7 @@ textarea.input {
   padding: 30px 0px;
   background: #FBFBFC;
   border-bottom: 1px solid #E4E7ED;
+  border-top: 1px solid #E4E7ED;
 }
 
 #breadcrumb .breadcrumb-header {
@@ -715,8 +716,6 @@ header-links li a i {
 
 #navigation {
   background: #FFF;
-  border-bottom: 2px solid #E4E7ED;
-  border-top: 3px solid #D10024;
 }
 
 /*----------------------------*\
@@ -806,6 +805,9 @@ header-links li a i {
   .main-nav>li>a {
     padding: 15px;
     color: #FFF;
+  }
+  .main-nav>li>a.active {
+    color: #252734;
   }
 }
 

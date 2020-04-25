@@ -699,10 +699,12 @@ header-links li a i {
 .main-nav>li>a {
   padding: 20px 0px;
   font-size: 17px;
+  color: #f96332;
 }
 
 .main-nav>li>a.active {
   font-weight: bold;
+  color: #252734;
 }
 
 .main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
@@ -776,8 +778,10 @@ header-links li a i {
     padding: 15px;
     color: #FFF;
   }
+  .main-nav>li>a.active {
+    color: #252734;
+  }
 }
-
 /*=========================================================
 	04 -> CATEGORY SHOP
 ===========================================================*/

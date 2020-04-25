@@ -92,20 +92,21 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav mx-auto">
-                    <?php if (!isset($_SESSION['c_email'])): ?>
+                    <?php if (isset($_SESSION['c_email'])): ?>
 
-                        <li><a href="../index.php">Home</a></li>
-                        <li><a href="shop.php">Shops</a></li>
-                        <li><a href="cart.php">Shopping Cart</a></li>
-                        <li><a href="contact.php">Contact Us</a></li>
-
-                        <?php else: ?>
-
-                        <li><a href="../index.php">Home</a></li>
-                        <li><a href="shop.php">Shops</a></li>
-                        <li><a href="my_account.php?my_orders">My Account</a></li>
-                        <li><a href="cart.php">Shopping Cart</a></li>
-                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a class="<?php if ($page_title == 'Home - Kasi Mall Online') {
+											echo "active";
+										} ?>" href="../index.php">Home</a></li>
+                        <li><a  class="<?php if ($page_title == 'Shops - Kasi Mall Online') {
+											echo "active";
+										} ?>" href="../shop.php">Shops</a></li>
+                        <li><a class="<?php if ($page_title == 'My Account - Kasi Mall Online') {
+											echo "active";
+										} ?>" href="my_account.php?my_orders">My Account</a></li>
+                        <li><a class="<?php if ($page_title == 'Cart - Kasi Mall Online') {
+											echo "active";
+										} ?>" href="../cart.php">Shopping Cart</a></li>
+						<?php else: ?>
 
                         <?php endif ?>
 					</ul>

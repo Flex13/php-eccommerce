@@ -1,4 +1,4 @@
-<?php $page_title = 'Kasi Mall Online';?>
+<?php $page_title = 'Home - Kasi Mall Online';?>
 <?php include('includes/shopheader.php'); ?>
 <?php include('includes/navbar.php'); ?>
 
