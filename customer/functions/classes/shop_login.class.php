@@ -45,6 +45,8 @@ if (isset($_POST['loginShop'], $_POST['token'])) {
                 $username = $row['m_username'];
                 $activated = $row['activated'];
                 $user_type = $row['user_type'];
+                $name = $row['m_name'];
+                $surname = $row['m_surname'];
 
                 if ($activated == "0" ) {
                     //Check User in trash
@@ -64,15 +66,14 @@ if (isset($_POST['loginShop'], $_POST['token'])) {
                         $statement->execute(array(':id' => $id));
 
                         //Login User
-                        prepLogin($id, $email, $username,$user_type);
+                        prepLogin($id, $email, $username,$user_type,$name,$surname);
                     } else {
                         $result = flashMessage("Please activate your account to login. Contact Admin. ");
                     }
                 } else {
                     if (password_verify($password, $hashed_password)) {
                         if ($user_type = 'merchant') {
-                            prepLogin($id, $email, $username,$user_type);
-                            $result = flashMessage("Login Successful","Pass");
+                            prepLogin($id, $email, $username,$user_type,$name,$surname);
                         } else {
                             $result = flashMessage("You are not registered as a Merchant");
                         }

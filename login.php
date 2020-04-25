@@ -17,7 +17,7 @@
 
                 <?php if (isset($result)) echo $result; ?>
                 <?php if (!empty($form_errors)) echo show_errors($form_errors); ?>
-
+                <?php echo errorMessage(); ?><?php echo successMessage(); ?>
 
                 <div class="form-group">
                     <label class="form-label">Email</label>

@@ -26,6 +26,8 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
+				<?php echo errorMessage(); ?>
+<?php echo successMessage(); ?>
 
 				
                     

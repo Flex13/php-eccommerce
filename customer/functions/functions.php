@@ -111,7 +111,7 @@ function flashMessage($message, $PassOrFail = "Fail") {
 
 //Function to redirect Page
 function redirectTo ($page) {
-    header ("location: {$page}.php");
+    header ("location: {$page}");
 }
 
 
@@ -206,7 +206,7 @@ function signout() {
 
     session_destroy();
     session_regenerate_id(true);
-    redirectTO('index');
+    redirectTO('index.php');
 }
 
 function guard() {
@@ -258,24 +258,28 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
     }
     }
 
-    function prepLogin($id,$email,$username,$user_type) {
+    function prepLogin($id,$email,$username,$user_type,$name,$surname) {
         $_SESSION['m_id'] = $id;
         $_SESSION['m_email'] = $email;
         $_SESSION['m_username'] = $username;
         $_SESSION['user_type'] = $user_type;
+        $_SESSION['m_name'] = $name;
+        $_SESSION['m_surname'] = $surname;
+        
 
 
         $fingerprint = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
         $_SESSION['last_active'] = time();
         $_SSEION['fingerprint'] = $fingerprint;
-
+        $_SESSION["successMessage"] =  "Welcome ".$name." ".$surname. "to Shop Admin Dashboard";
+        echo "<script>window.open('../merchant/index.php?orders','_self')</script>";
     }
-
+    
     // Error Messages 
 function errorMessage() {
 
     if(isset($_SESSION["errorMessage"])) {
-        $output = "<div class='alert  m-3 error text-center'>";
+        $output = "<div class='alert error text-center'>";
         $output .= htmlentities($_SESSION['errorMessage']);
         $output .= "</div>";
         $_SESSION["errorMessage"] = null;
@@ -288,7 +292,7 @@ function errorMessage() {
 function successMessage() {
 
     if(isset($_SESSION["successMessage"])) {
-        $output = "<div class='alert m-3 success text-center'>";
+        $output = "<div class='alert success text-center'>";
         $output .= htmlentities($_SESSION['successMessage']);
         $output .= "</div>";
         $_SESSION["successMessage"] = null;

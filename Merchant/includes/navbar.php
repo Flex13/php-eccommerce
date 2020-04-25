@@ -15,7 +15,7 @@
 					</ul>
 					<ul class="header-links pull-right">
 
-                        <li><a href="my_account.php?my_orders"><i class="fa fa-user"></i> Back to my Account</a></li>
+                        <li><a href="../customer/my_account.php?my_orders"><i class="fa fa-user"></i> Back to my Account</a></li>
                         <li><a href="../logout.php"><i class="fas fa-sign-in-alt"></i> Logout</a></li>
 
 					</ul>

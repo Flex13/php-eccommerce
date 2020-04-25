@@ -229,7 +229,7 @@ function signout() {
 
     session_destroy();
     session_regenerate_id(true);
-    redirectTO('index');
+    redirectTO('index.php');
 }
 
 function guard() {
@@ -292,13 +292,14 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
         $fingerprint = md5($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
         $_SESSION['last_active'] = time();
         $_SSEION['fingerprint'] = $fingerprint;
+        
 
         if ($remember === "yes") {
             rememberMe($id);
         }
-        $result = flashMessage("Login Successful","Pass");
-        $_SESSION["successMessage"] =  "Welcome ".$name." ".$surname. "";
-        redirectTo('customer/my_account.php?my_orders');
+        $_SESSION["errorMessage"] =  "Please login first to view account page";
+        echo "<script>window.open('customer/my_account.php?my_orders','_self')</script>";
+        
     }
 
     // Error Messages 

@@ -111,7 +111,7 @@ function flashMessage($message, $PassOrFail = "Fail") {
 
 //Function to redirect Page
 function redirectTo ($page) {
-    header ("location: {$page}.php");
+    header ("location: {$page}");
 }
 
 
@@ -206,7 +206,7 @@ function signout() {
 
     session_destroy();
     session_regenerate_id(true);
-    redirectTO('index');
+    redirectTO('index.php');
 }
 
 function guard() {
@@ -270,5 +270,30 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
         $_SSEION['fingerprint'] = $fingerprint;
 
     }
+
+        // Error Messages 
+function errorMessage() {
+
+    if(isset($_SESSION["errorMessage"])) {
+        $output = "<div class='alert error text-center'>";
+        $output .= htmlentities($_SESSION['errorMessage']);
+        $output .= "</div>";
+        $_SESSION["errorMessage"] = null;
+        return $output;
+    }
+}
+
+//Success Messages
+
+function successMessage() {
+
+    if(isset($_SESSION["successMessage"])) {
+        $output = "<div class='alert success text-center'>";
+        $output .= htmlentities($_SESSION['successMessage']);
+        $output .= "</div>";
+        $_SESSION["successMessage"] = null;
+        return $output;
+    }
+}
 
 ?> 

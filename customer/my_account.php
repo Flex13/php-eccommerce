@@ -1,18 +1,18 @@
-<?php
 
-session_start();
+ 
 
-if (!isset($_SESSION['c_email'])) :
-
-
-    echo "<script>window.open('../login.php','_self')</script>";
-
-else :
+<?php session_start(); 
+include("functions/db.php");
+include("functions/functions.php");
 ?>
+<?php if (isset($_SESSION['c_email'])) : ?>
+
     <?php $page_title = 'My Account - Kasi Mall'; ?>
     <?php include('includes/shopheader.php'); ?>
     <?php include('includes/navbar.php'); ?>
     <link rel="stylesheet" href="styles/style.css" />
+
+
 
     <!-- SECTION -->
     <div class="section">
@@ -25,7 +25,8 @@ else :
                 <!-- STORE -->
                 <div id="store" class="col-md-9">
 
-                    <?php echo errorMessage(); ?><?php echo successMessage(); ?>
+                <?php echo errorMessage(); ?>
+<?php echo successMessage(); ?>
 
                     <!-- box Begin -->
                     <?php
@@ -85,14 +86,14 @@ else :
     <!-- /SECTION -->
 
 
-
-
-
-
-
-
     <?php include('includes/shopfooter.php'); ?>
 
 
+    
 
+<?php else : ?>
+    <?php
+    $_SESSION["errorMessage"] =  "Please login first to view account page";
+    echo "<script>window.open('../login.php','_self')</script>";
+?>
 <?php endif ?>
