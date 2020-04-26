@@ -17,30 +17,30 @@
 
 
                 <!-- STORE -->
-                <div id="" class="col-md-9">
+                <div id="" class="col-md-8">
                     <?php echo errorMessage(); ?><?php echo successMessage(); ?>
                     <!-- box Begin -->
                     <?php
                     if (isset($_GET['s_details'])) {
-                        include("shop/shopdetails.php");
+                        include("shopprofile/shopdetails.php");
                     }
                     ?>
 
                     <?php
                     if (isset($_GET['m_details'])) {
-                        include("shop/merchantDetails.php");
+                        include("shopprofile/merchantDetails.php");
                     }
                     ?>
 
                     <?php
                     if (isset($_GET['change_pass'])) {
-                        include("shop/change_pass.php");
+                        include("shopprofile/change_pass.php");
                     }
                     ?>
 
                     <?php
                     if (isset($_GET['delete_acc'])) {
-                        include("shop/delete_acc.php");
+                        include("shopprofile/delete_acc.php");
                     }
                     ?>
 
@@ -49,8 +49,8 @@
                 <!-- STORE END -->
 
                 <!-- ASIDE -->
-                    <div id="aside" class="col-md-3">
-                        <?php include("shop/sidebar.php"); ?>
+                    <div id="aside" class="col-md-4">
+                        <?php include("shopprofile/sidebar.php"); ?>
 
                     </div>
                 <!-- /row -->

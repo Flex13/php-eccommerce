@@ -19,12 +19,6 @@
                     <?php echo errorMessage(); ?><?php echo successMessage(); ?>
                     <!-- box Begin -->
                     <?php
-                    if (isset($_GET['category'])) {
-                        include("category.php");
-                    }
-                    ?>
-
-                    <?php
                     if (isset($_GET['products'])) {
                         include("products.php");
                     }

@@ -63,9 +63,9 @@
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav mx-auto">
 
-					<li><a class="<?php if (isset($_GET['category'])) {
+				<li><a class="<?php if ($page_title == 'Shop Categories - Kasi Mall Online') {
 										echo "active";
-									} ?>" href="index.php?category">Categories</a></li>
+									} ?>" href="category.php?categories=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Categories</a></li>
 					<li><a class="<?php if (isset($_GET['products'])) {
 										echo "active";
 									} ?>" href="index.php?products">Products</a></li>

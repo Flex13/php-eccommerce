@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="styles/style.css" />
+<div class="box product-box">
+    <form class="" action="" method="post" enctype="multipart/form-data">
+        <div class="section-title">
+            <h3 class="title">My Product Categories</h3><br>
+            <input type="submit" name="addCategory" class="btn table-primary-button my-4" value="Add Category">
+        </div>
+    </form>
+    <?php if (isset($result)) echo $result; ?>
+    <?php if (!empty($form_errors)) echo show_errors($form_errors); ?>
+    <p class="text-muted">You currently have 0 Categories</p>
+    <form class="" action="" method="post" enctype="multipart/form-data">
+        <div class="table-responsive">
+            <!-- table-responsive Begin -->
+            <table class="table ">
+                <!-- table Begin -->
+                <thead class="thead-dark text-center">
+                    <!-- thead Begin -->
+                    <tr>
+                        <!-- tr Begin -->
+                        <th>#</th>
+                        <th>Category</th>
+                        <th>Category Description</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr><!-- tr Finish -->
+                </thead><!-- thead Finish -->
+
+
+                <tbody>
+                    <!-- tbody Begin -->
+                    <tr>
+                        <!-- tr Begin -->
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><input type="submit" name="editCategory" class="btn table-link-info btn-block" value="Edit"></td>
+                        <td><input type="submit" name="deleteCategory" class="btn table-link-danger btn-block" value="Delete"></td>
+                    </tr><!-- tr Finish -->
+                </tbody><!-- tbody Finish -->
+            </table>
+        </div>
+    </form>
+</div>
+
+<?php if (isset($_POST['addCategory'])) {
+    include_once('shop/addCategory.php');
+} elseif (isset($_POST['editCategory'])) {
+    include_once('shop/editCategory.php');
+} else {
+}
