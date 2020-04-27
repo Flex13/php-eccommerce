@@ -69,9 +69,9 @@
 					<li><a class="<?php if ($page_title == 'Shop Products - Kasi Mall Online') {
 										echo "active";
 									} ?>" href="products.php?products=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Products</a></li>
-					<li><a class="<?php if (isset($_GET['orders'])) {
+					<li><a class="<?php if ($page_title == 'Shop Orders - Kasi Mall Online') {
 										echo "active";
-									} ?>" href="index.php?orders">Orders</a></li>
+									} ?>" href="orders.php?my_orders=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Orders</a></li>
 					<li><a class="<?php if (isset($_GET['customers'])) {
 										echo "active";
 									} ?>" href="index.php?customers">Customers</a></li>

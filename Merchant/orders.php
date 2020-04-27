@@ -1,43 +1,61 @@
-<div class="box product-box">
-    <form action="cart.php" method="post" enctype="multipart/form-data">
-        <div class="section-title">
-            <h3 class="title">My Orders</h3>
+<?php session_start();
+
+?>
+<?php if (isset($_SESSION['m_email']) && $_SESSION['user_type'] == 'merchant') : ?>
+
+    <?php $page_title = 'Shop Orders - Kasi Mall Online'; ?>
+    <?php include('includes/shopheader.php'); ?>
+    <?php include('includes/navbar.php'); ?>
+
+    <link rel="stylesheet" href="styles/style.css" />
+
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+
+                <!-- STORE -->
+                <div id="" class="col-md-12">
+                    <?php echo errorMessage(); ?><?php echo successMessage(); ?>
+                    <!-- box Begin -->
+
+                    <?php
+                    if (isset($_GET['my_orders'])) {
+                        include("orders/my_orders.php");
+                    }
+                    ?>
+
+                    
+
+
+                </div>
+                <!-- STORE END -->
+
+                <!-- ASIDE -->
+                <!-- /row -->
+            </div>
+            <!-- /container -->
         </div>
-        <p class="text-muted">You currently have 0 Orders</p>
-
-        <div class="table-responsive">
-            <!-- table-responsive Begin -->
-            <table class="table">
-                <!-- table Begin -->
-                <thead>
-                    <!-- thead Begin -->
-                    <tr>
-                        <!-- tr Begin -->
-                        <th>#</th>
-						<th>Customer Name</th>
-						<th>Total Price</th>
-						<th>Order Status</th>
-						<th>Payment Mode</th>
-						<th>Order Placed On</th>
-						<th>Operations</th>
-                    </tr><!-- tr Finish -->
-                </thead><!-- thead Finish -->
+        <!-- /SECTION -->
 
 
-                <tbody>
-                    <!-- tbody Begin -->
-                    <tr>
-                        <!-- tr Begin -->
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr><!-- tr Finish -->
-                </tbody><!-- tbody Finish -->
-            </table>
-        </div>
-    </form>
-</div>
+
+
+
+
+
+
+
+
+
+        <?php include('includes/shopfooter.php'); ?>
+
+    <?php else : ?>
+        <?php $_SESSION["errorMessage"] =  "Please Login as Merchent to view admin"; ?>
+        <?php echo "<script>window.open('../customer/my_account.php?login_merchant','_self')</script>"; ?>
+
+    <?php endif ?>

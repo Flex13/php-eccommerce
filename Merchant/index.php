@@ -15,20 +15,10 @@
 
 
                 <!-- STORE -->
-                <div id="" class="col-md-9">
+                <div id="" class="col-md-12">
                     <?php echo errorMessage(); ?><?php echo successMessage(); ?>
                     <!-- box Begin -->
-                    <?php
-                    if (isset($_GET['products'])) {
-                        include("products.php");
-                    }
-                    ?>
 
-                    <?php
-                    if (isset($_GET['orders'])) {
-                        include("orders.php");
-                    }
-                    ?>
 
                     <?php
                     if (isset($_GET['customers'])) {
@@ -47,10 +37,6 @@
                 <!-- STORE END -->
 
                 <!-- ASIDE -->
-                    <div id="aside" class="col-md-3">
-                        <?php include("includes/sidebar.php"); ?>
-
-                    </div>
                 <!-- /row -->
             </div>
             <!-- /container -->
