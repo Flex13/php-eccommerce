@@ -93,7 +93,7 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
                 Once done with shop profile update. Your account will be activated.</p><br><br>
 
 
-                <p><a href="http://127.0.0.1:8080/customer/activate.php?id=' . $shop_encode_id . '">Activate Shop Admin Account</a></p>
+                <p><a href="https://bts-app.co.za/customer/activate.php?id=' . $shop_encode_id . '">Activate Shop Admin Account</a></p>
                 <p><strong>&copy;2020 Kasi Mall online</strong></p>
                 </body>
                 </html>';

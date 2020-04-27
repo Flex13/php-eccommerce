@@ -39,7 +39,7 @@ if (isset($_POST['Yes'], $_POST['token'])) {
                                     <p>Dear ' . $shop_owner_name . '  <br><br>You have requested to deactivate your shop account ' . $shop_name . ',
                                     your information will be kept for 14 days. If you wish to continue using Kasi Mall Online, login to shop admin whithin 
                                     the next 14 days to reactivate your account or it will be permanently deleted.</p>
-                                    <p><a href="https://localhost:8080/login.php">Login</a></p>
+                                    <p><a href="https://bts-app.co.za/login.php">Login</a></p>
                                     <p><strong>&copy;2020 Kasi Mall online</strong></p>
                                     </body>
                                     </html>';

@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
     if ($statement->rowCount() == 1) {
         $result = '<h2>Email Confirmed </h2>
     <p>Your email address has been verified. You can now Login to your Shop Admin Dashboard in the account page.</p>
-    <p><a href="http://127.0.0.1:8080/customer/my_account.php?login_merchant">Home Page</a></p>'
+    <p><a href="https://bts-app.co.za/customer/my_account.php?login_merchant">Home Page</a></p>'
     ;
     } else {
         $result = "<p class='lead'>No changes made please contact site admin,
