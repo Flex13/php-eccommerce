@@ -7,7 +7,7 @@
 
     <?php if (isset($result)) echo $result; ?>
     <?php if (!empty($form_errors)) echo show_errors($form_errors); ?>
-    <p class="text-muted">You currently have 0 Categories</p>
+    <p class="text-muted">You currently have <?php echo $count; ?> Categories</p>
     <form class="" action="" method="post" enctype="multipart/form-data">
         <div class="table-responsive">
             <!-- table-responsive Begin -->

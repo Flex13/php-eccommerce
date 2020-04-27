@@ -63,12 +63,12 @@
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav mx-auto">
 
-				<li><a class="<?php if ($page_title == 'Shop Categories - Kasi Mall Online') {
+					<li><a class="<?php if ($page_title == 'Shop Categories - Kasi Mall Online') {
 										echo "active";
 									} ?>" href="category.php?categories=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Categories</a></li>
-					<li><a class="<?php if (isset($_GET['products'])) {
+					<li><a class="<?php if ($page_title == 'Shop Products - Kasi Mall Online') {
 										echo "active";
-									} ?>" href="index.php?products">Products</a></li>
+									} ?>" href="products.php?products=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Products</a></li>
 					<li><a class="<?php if (isset($_GET['orders'])) {
 										echo "active";
 									} ?>" href="index.php?orders">Orders</a></li>

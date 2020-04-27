@@ -19,6 +19,8 @@ if (isset($_POST['deleteCategory'], $_POST['token'])) {
 
             $db->exec("DELETE FROM category WHERE cat_id = $cat_id LIMIT 1");
             $result = flashMEssage("Delete Successfull", "Pass");
+            $_SESSION['successMessage'] = "Category Deleted";
+                    echo "<script>window.open('/merchant/category.php?categories=ZW5jb2RldXNlcmlkMQ==','_self')</script>";
 
         } catch (PDOException $ex) {
             $result = flashMessage("An Error Occurred" . $ex->getMessage());

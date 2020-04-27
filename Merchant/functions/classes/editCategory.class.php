@@ -61,6 +61,8 @@ if ((isset($_SESSION['m_id']) || isset($_GET['edit_category'])) && !isset($_POST
                 //Check is one data was created in database the echo result
                 if ($statement->rowcount() == 1) {
                     $result = flashMEssage("Update Successfull", "Pass");
+                    $_SESSION['successMessage'] = "Category Updated";
+                    echo "<script>window.open('/merchant/category.php?categories=ZW5jb2RldXNlcmlkMQ==','_self')</script>";
                 }
             } catch (PDOException $ex) {
                 $result = flashMessage("An Error Occerred" . $ex->getMessage());
