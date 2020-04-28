@@ -1,47 +1,30 @@
-
-/*=========================================================
-	08 -> PROFILE PAGE
-===========================================================*/
-
-/*----------------------------*\
-	ASIDE
-\*----------------------------*/
-
-.profile {
-  position: relative;
-  margin: 15px 0px;
-  -webkit-box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
-  box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-.profile .profile-img {
-  position: relative;
-  border: none;
-}
-.profile .profile-img>img {
-  width: 100%;
-}
-
-a.profile-menu.active{
-  color: white;
-  background-color: #f96332;
-  border-radius: 25px;
-  padding: 5px 20px;
-}
-
-ul.nav.category-menu {
-  margin-bottom: 20px;
-}
-
-a.profile-menu {
-  margin: 8px 0px;
-  text-transform: uppercase;
-  color: #f96332;
-  font-size: 15px;
-}
-
-h3.profile-title {
-  font-size: 20px;
-  font-weight: 500;
-}
+<div id="newsletter" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="newsletter">
+							<p>Sign Up for the <strong style="color: #f96332;">NEWSLETTER</strong></p>
+							<form>
+								<input class="input" type="email" placeholder="Enter Your Email">
+								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+							</form>
+							<ul class="newsletter-follow">
+								<li>
+									<a href="#"><i class="fab fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fab fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fab fa-instagram"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>

@@ -272,7 +272,7 @@ function checkDuplicateEntries($table, $column_name, $value,$db) {
         $_SESSION['last_active'] = time();
         $_SSEION['fingerprint'] = $fingerprint;
         $_SESSION["successMessage"] =  "Welcome ".$shop_owner_name." ".$shop_owner_surname. "to Shop Admin Dashboard";
-        echo "<script>window.open('../merchant/index.php?orders','_self')</script>";
+        echo "<script>window.open('../merchant/orders.php?my_orders','_self')</script>";
     }
     
     // Error Messages 
@@ -299,4 +299,3 @@ function successMessage() {
         return $output;
     }
 }
-?> 

@@ -6,9 +6,10 @@ html, body {
     font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
     font-weight: 400;
     background-color: #fff;
-    color: black;
+    color: #212121;
     font-size: 14px;
 }
+
 
 .card {
     background: rgba(255,255,255,0.7);
@@ -50,7 +51,7 @@ form {
 }
 input.form-control{
     background-color: transparent;
-    border: 1px solid #E3E3E3;
+    border: 1px solid #ffe0b2;
     border-radius: 30px;
     color: #2c2c2c;
     -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -71,7 +72,7 @@ select.form-control{
 	height: 3em;
     text-align: center;
     background-color: transparent;
-    border: 1px solid #E3E3E3;
+    border: 1px solid #ffe0b2;
     border-radius: 30px;
     color: #2c2c2c;
     -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -86,20 +87,20 @@ select.form-control{
 select.DOB {
     display: inline-block;
     height: 45px;
-    color: black;
+    color: #212121;
     border-radius: 10px;
     
 }
 
 
 .form-label{
-    color: black;
+    color: #212121;
 }
 
 input[type=submit] {
     border: none;
     width: auto;
-    background-color: #f96332;
+    background-color: #FF8800;
     color: #FFFFFF;
     line-height: 25px;
     cursor: pointer;
@@ -109,9 +110,11 @@ input[type=submit] {
     padding: 11px 23px;
 }
 
-.footer {
-    
+input[type=submit]:hover {
+    background: linear-gradient(40deg,#ffd86f,#fc6262) !important;
 }
+
+
 
 .pull-left {
     float: left;
@@ -127,7 +130,7 @@ input[type=submit] {
 	margin: 5px; 
     text-align: center;
     border-radius: 5px;
-    background-color: rgba(255, 54, 54, 0.8);
+    background-color: #ff4444;
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
     border: 0;
@@ -142,7 +145,7 @@ input[type=submit] {
 	color: white;  
 	border-radius: 5px; 
     text-align: center;
-    background-color: rgba(24, 206, 15, 0.8);
+    background-color: #00C851;
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
     border: 0;
@@ -170,17 +173,7 @@ input[type=submit] {
     box-shadow: none;
 }
 
-button[type="button"] {
-    font-size: 15px;
-	font-style: italic;
-	height: 35px;
-	border: none;
-	background: transparent;
-	margin: 0;
-    padding: 0;
-    color: red;
 
-}
 
 
 

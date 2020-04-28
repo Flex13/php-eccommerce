@@ -1,6 +1,6 @@
 /*
-Template Name: Electro - HTML Ecommerce Template
-Author: yaminncco
+Template Name: 
+Author: 
 
 Colors:
 	Body 		: #333
@@ -55,6 +55,39 @@ Table OF Contents
 	Typography
 \*----------------------------*/
 
+.error {
+	width: auto; 
+	margin: 5px; 
+    text-align: center;
+    border-radius: 5px;
+    background-color: #CC0000;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 0;
+    color: #FFFFFF;
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+    position: relative;
+}
+.success {
+	width: auto; 
+	margin: 5px ; 
+	color: white;  
+	border-radius: 5px; 
+    text-align: center;
+    background-color: #00C851;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 0;
+    color: rgba(96, 125, 139, 0.1);
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+    position: relative;
+}
+/*----------------------------*\
+	Typography
+\*----------------------------*/
+
 html,body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -72,20 +105,20 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #252734;
+  color: #212121 ;
   font-weight: 700;
   margin: 0 0 10px;
 }
 
 a {
-  color: #2B2D42;
+  color: #212121 ;
   font-weight: 500;
   -webkit-transition: 0.2s color;
   transition: 0.2s color;
 }
 
 a:hover, a:focus {
-  color: #252734;
+  color: #212121 ;
   text-decoration: none;
   outline: none;
 }
@@ -102,7 +135,7 @@ ul, ol {
 
 .primary-btn {
   display: inline-block;
-  background-color: #f96332;
+  background-color: #FF8800;
   border: none;
   border-radius: 30px !important;
   padding: 5px 15px;
@@ -125,7 +158,7 @@ ul, ol {
 
 .info-btn {
   display: inline-block;
-  background-color: #2CA8FF;
+  background-color: #0099CC;
   border: none;
   border-radius: 30px !important;
   padding: 5px 15px;
@@ -148,7 +181,7 @@ ul, ol {
 
 .secondary-btn {
   display: inline-block;
-  background-color: #252734;
+  background-color: #3F729B;
   border: none;
   border-radius: 30px !important;
   padding: 5px 15px;
@@ -178,7 +211,7 @@ ul, ol {
 .input {
   height: 40px;
   padding: 0px 15px;
-  border: 1px solid #E4E7ED;
+  border: 1px solid #ffe0b2;
   background-color: #FFF;
   width: 100%;
 }
@@ -203,7 +236,7 @@ textarea.input {
   -moz-appearance: textfield;
   height: 40px;
   width: 100%;
-  border: 1px solid #E4E7ED;
+  border: 1px solid #4B515D;
   background-color: #FFF;
   padding: 0px 35px 0px 15px;
 }
@@ -213,7 +246,7 @@ textarea.input {
   display: block;
   width: 20px;
   height: 20px;
-  border: 1px solid #E4E7ED;
+  border: 1px solid #4B515D;
   background-color: #FFF;
   text-align: center;
   font-weight: 700;
@@ -245,7 +278,7 @@ textarea.input {
 .input-select {
   padding: 0px 15px;
   background: #FFF;
-  border: 1px solid #E4E7ED;
+  border: 1px solid #ffe0b2;
   height: 40px;
 }
 
@@ -276,7 +309,7 @@ textarea.input {
   top: 4px;
   width: 14px;
   height: 14px;
-  border: 2px solid #E4E7ED;
+  border: 2px solid #4B515D;
   background: #FFF;
 }
 
@@ -346,7 +379,6 @@ textarea.input {
 .input-radio input[type="radio"]:checked~.caption, .input-checkbox input[type="checkbox"]:checked~.caption {
   max-height: 800px;
 }
-
 /*----------------------------*\
 	Section
 \*----------------------------*/
@@ -420,9 +452,9 @@ textarea.input {
 
 #breadcrumb {
   padding: 30px 0px;
-  background: #FBFBFC;
-  border-bottom: 1px solid #E4E7ED;
-  border-top: 1px solid #E4E7ED;
+  background: #fffde7;
+  border-bottom: 1px solid #ffe0b2;
+  border-top: 1px solid #ffe0b2;
 }
 
 #breadcrumb .breadcrumb-header {
@@ -460,7 +492,7 @@ textarea.input {
 }
 
 #breadcrumb .breadcrumb-tree li a:hover {
-  color: #D10024;
+  color: #FF8800;
 }
 
 /*=========================================================
@@ -474,13 +506,27 @@ textarea.input {
 #top-header {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #f96332;
+  background-color: #FF8800;
+}
+
+ul.header-links {
+  padding: 5px 10px;
+
+}
+
+.header-links .header-button {
+  color: #fff;
+  background-color: #FF8800;
+  /* border-color: #fff; */
+ 
+  border-radius: 50%;
+  font-size: 12px;
 }
 
 .header-links li {
   display: inline-block;
   margin-right: 15px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .header-links li:last-child {
@@ -488,12 +534,11 @@ textarea.input {
 }
 
 .header-links li a {
-  color: #FFF;
+  color: #FF8800;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
 }
 
-header-links li a i {
-  color: red;
-}
 
 .header-links li a:hover {
   color: #252734;
@@ -512,14 +557,12 @@ header-links li a i {
   background-color: transparent;
 }
 
-.header-logo {
-  float: left;
-}
+
 
 .header-logo .logo img {
   display: block;
   width: auto;
-  height: 130px;
+  height: 150px;
 }
 
 /*----------------------------*\
@@ -528,7 +571,7 @@ header-links li a i {
 
 .header-search {
   padding: 15px 0px;
-  margin: 20px 0px;
+  margin-top: 20px;
 }
 
 .header-search form {
@@ -543,14 +586,15 @@ header-links li a i {
   width: calc(100% - 100px);
   margin-right: -4px;
   border-radius: 40px 0px 0px 40px;
+  border: 1px solid #ffe0b2;
 }
 
 .header-search form .search-btn {
-  height: 40px;
+  height: 41px;
   width: 100px;
-  background: #f96332;
+  background: linear-gradient(40deg,#ffd86f,#fc6262) !important;
   color: #FFF;
-  font-weight: 700;
+  font-weight: 400;
   border: none;
   border-radius: 0px 40px 40px 0px;
 }
@@ -689,21 +733,39 @@ header-links li a i {
   background: #FFF;
 }
 
+.navbar {
+  padding: 10px 1rem;
+  margin:0;
+}
+
 /*----------------------------*\
 	Main nav
 \*----------------------------*/
 
+.main-nav>li {
+  text-align: center;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
 .main-nav>li+li {
   margin-left: 30px;
+  text-align: center;
+}
+
+svg.header-icons {
+  font-size: 20px;
+  color: #FF8800;
 }
 
 .main-nav>li>a {
-  padding: 20px 0px;
+  padding: 0px 0px;
   font-size: 17px;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
 }
 
 .main-nav>li>a.active {
   font-weight: bold;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 .main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
@@ -717,7 +779,7 @@ header-links li a i {
   display: block;
   width: 0%;
   height: 2px;
-  background-color: #D10024;
+  background-color: #FF8800;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
@@ -775,7 +837,7 @@ header-links li a i {
   }
   .main-nav>li>a {
     padding: 15px;
-    color: #FFF;
+    color: #252734;
   }
   .main-nav>li>a.active {
     color: #252734;
@@ -1334,7 +1396,7 @@ merchant
   border: 2px solid transparent;
   height: 40px;
   padding: 0 30px;
-  background-color: #f96332;
+  background-color: #FF8800;
   color: #FFF;
   text-transform: uppercase;
   font-weight: 400;
@@ -1357,8 +1419,8 @@ merchant
 
 .merchant .add-to-cart .add-to-cart-btn:hover {
   background-color: white;
-  color: #f96332;
-  border-color: #f96332;
+  color: #FF8800;
+  border-color: #FF8800;
   padding: 0px 30px 0px 30px;
 }
 
@@ -1598,9 +1660,10 @@ merchant
 
 a.profile-menu.active{
   color: white;
-  background-color: #f96332;
+  background-color: #FF8800;
   border-radius: 25px;
   padding: 5px 20px;
+  box-shadow: 0px 0px 6px 0px #FF8800, 0px 0px 0px 2px #FF8800;
 }
 
 ul.nav.category-menu {
@@ -1610,7 +1673,9 @@ ul.nav.category-menu {
 a.profile-menu {
   margin: 8px 0px;
   text-transform: uppercase;
-  color: #f96332;
+  color: #FF8800;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    
 }
 
 h3.profile-title {

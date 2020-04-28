@@ -15,8 +15,8 @@
         <input type="hidden" name="token" value="<?php if (function_exists('_token'))  echo _token(); ?>">
 
     <div class="footer text-center">
-    <input type="submit" name="Yes" value="Yes, I want to Delete" class="btn primary-button mx-2 my-3">
-    <input type="submit" name="No" value="No, I don't want to Delete" class="btn danger-button mx-2 my-3">
+    <input type="submit" name="Yes" value="Yes, I want to Delete" class="btn primary-button btn-block">
+    
     </div>
     </form><!-- form Finish -->
         

@@ -12,7 +12,7 @@
                     <li>
                         <a class="profile-menu <?php if (isset($_GET['login_merchant'])) {
                                                     echo "active";
-                                                } ?>" href="../merchant/index.php?orders"><i class="fas fa-store-alt"></i> Shop Admin</a>
+                                                } ?>" href="../merchant/orders.php?my_orders"><i class="fas fa-store-alt"></i> Shop Admin</a>
                     </li>
 
                 <?php else : ?>

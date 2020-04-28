@@ -18,7 +18,9 @@
 
             <div class="col-md-6">
                 <div class="form-group">
+                    
                     <label class="form-label">Product Category</label>
+                    
                     <select name="Category" class="form-control">
                             <option value="">Please Select Category</option>
                     <?php while ($rs = $stmt->fetch()) {
@@ -31,6 +33,7 @@
                             
                         <?php } ?>
                         </select>
+                        <small>Please add categories before adding products</small>
                 </div>
             </div>
         </div>
