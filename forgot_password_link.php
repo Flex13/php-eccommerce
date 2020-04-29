@@ -8,7 +8,9 @@
         <div class="card card1 card-spacing text-center">
 
             <div class="container logo" align="center">
-                <img src="images/kasilogo.jpg" alt="">
+            <a href="index.php" class="logo">
+                    <img src="images/kasilogo.jpg" alt="Kasi logo">
+                </a>
             </div>
 
             <h3 class="mb-5">Forgot Password</h3>

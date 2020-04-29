@@ -4,11 +4,14 @@
 
 
 <section class="container card-show">
-<div class="row card-row">
+    <div class="row card-row">
         <div class="card card1 card-spacing text-center">
 
             <div class="container logo" align="center">
-                <img src="images/kasilogo.jpg" alt="">
+                <a href="index.php" class="logo">
+                    <img src="images/kasilogo.jpg" alt="Kasi logo">
+                </a>
+
             </div>
 
             <h3 class="mb-5">Login</h3>
@@ -40,7 +43,7 @@
                         </label>
                     </div>
                 </div>
-                <input type="hidden" name="token" value="<?php if(function_exists('_token')) echo _token(); ?>">
+                <input type="hidden" name="token" value="<?php if (function_exists('_token')) echo _token(); ?>">
 
                 <div class="footer text-center">
                     <input type="submit" name="login" class="btn btn-primary btn-block mb-4" value="Login">
@@ -63,7 +66,7 @@
             </form>
 
         </div>
-</div>
+    </div>
 </section>
 
 

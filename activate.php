@@ -6,7 +6,9 @@
         <div class="card card1 card-spacing">
 
             <div class="container logo" align="center">
-                <img src="images/kasilogo.jpg" alt="">
+            <a href="index.php" class="logo">
+                    <img src="images/kasilogo.jpg" alt="">
+                </a>
             </div>
 
             <form class="" action="" method="post">

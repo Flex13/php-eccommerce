@@ -4,10 +4,12 @@
 
 
 <section class="container card-show">
-<div class="row card-row">
+    <div class="row card-row">
         <div class="card card1 card-spacing text-center">
-        <div class="container logo" align="center">
-                <img src="images/kasilogo.jpg" alt="">
+            <div class="container logo" align="center">
+                <a href="index.php" class="logo">
+                    <img src="images/kasilogo.jpg" alt="">
+                </a>
             </div>
             <h1 class="mb-5">Registration</h1>
             <form class="" action="" method="post">
@@ -121,7 +123,7 @@
                         </div>
                     </div>
 
-                    <input type="hidden" name="token" value="<?php if(function_exists('_token')) echo _token(); ?>">
+                    <input type="hidden" name="token" value="<?php if (function_exists('_token')) echo _token(); ?>">
                 </div>
 
                 <div class="footer text-center">
@@ -141,7 +143,7 @@
             </form>
 
         </div>
-</div>
+    </div>
 </section>
 
 

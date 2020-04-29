@@ -1,4 +1,4 @@
-<?php $page_title = 'Cart - Kasi Mall Online'; ?>
+<?php $page_title = 'iTrolley - Kasi Mall Online'; ?>
 <?php include('includes/shopheader.php'); ?>
 <?php include('includes/navbar.php'); ?>
 

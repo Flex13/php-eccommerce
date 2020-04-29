@@ -26,7 +26,21 @@ $(function () {
 
 </script>
 
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
 
+</script>
+
+<script ></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#test").hide();
+    });
+});
+</script>
 
 
 

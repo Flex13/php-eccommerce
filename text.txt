@@ -1,30 +1,12 @@
-<div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="newsletter">
-							<p>Sign Up for the <strong style="color: #f96332;">NEWSLETTER</strong></p>
-							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-							</form>
-							<ul class="newsletter-follow">
-								<li>
-									<a href="#"><i class="fab fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fab fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fab fa-instagram"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
+<!-- TOP HEADER -->
+<section id="pop" class="justify-content-center">
+	<div class="container text-center pop-show">
+		<div class="row pop-row">
+			<div class="card card-pop">
+				<button class="pop-button pull-right">Close</button>
+				<p class="pop-notify"><b>Stay Informed!!</b> Visit the SA Department of Healths's Website for COVIUD-19 Updates: <br> <a href="www.sacoronavirus.co.za">www.sacoronavirus.co.za</a></p>
 			</div>
-			<!-- /container -->
 		</div>
+	</div>
+</section>
+<!-- /TOP HEADER -->

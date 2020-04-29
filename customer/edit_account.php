@@ -81,15 +81,6 @@
 </div>
     </div>
         
-
-<div class="row">
-<div class="col-md-12">
-        <div class="form-group">
-        <label>Your Profile Picture</label>
-                                <input type="file" class="form-height-custom" name="Image"><br>
-            </div>
-        </div>
-</div>
         
 
 <input type="hidden" name="hidden_id" value="<?php if(isset($id)) echo $id; ?>">

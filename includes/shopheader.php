@@ -28,6 +28,7 @@
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="styles/shop.css" />
+	<link type="text/css" rel="stylesheet" href="styles/style.css" />
 	
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

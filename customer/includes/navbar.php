@@ -1,16 +1,35 @@
 <body>
+
+
+
+
 	<!-- HEADER -->
 	<header>
+		<?php if($page_title === 'Kasi Mall Online') : ?>
+<!-- TOP HEADER -->
+<div id="test">
+			<div class="container text-center">
+				
+				<p class="notify"><b>Stay Informed</b> Visit the SA Department of Healths's Website for COVIUD-19 Updates: <br> <a href="www.sacoronavirus.co.za">www.sacoronavirus.co.za</a></p>
+				<button class="notify-button">Close</button>
+			</div>
+		</div>
+		<!-- /TOP HEADER -->
+		<?php  else :  ?>
+
+		<?php endif ?>
+		
+
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-2">
+				<div class="col-sm-12 col-md-4 col-lg-2">
 					<div class="header-logo">
 						<a href="index.php" class="logo">
 							<img src="images/kasilogo.jpg" alt="kasi-logo">
 						</a>
 					</div>
 				</div>
-				<div class="col-md-5 justify-content-center">
+				<div class="col-sm-12 col-md-8  col-lg-5 justify-content-center">
 					<div class="header-search">
 						<form>
 							<input class="input" placeholder="Search here">
@@ -28,56 +47,52 @@
 					</ul>
 
 				</div>
-				<div class="clearfix"></div>
-				<div class="col-md-5 pt-5 ">
-					<ul class="header-links text-center">
-						<?php if (!isset($_SESSION['c_email'])) : ?>
+				<div class="col-sm-12 col-md-12 col-lg-5 p-0">
+					<nav class="navbar navbar-expand-lg">
+						<ul class="main-nav nav navbar-nav">
+							<?php if (!isset($_SESSION['c_email'])) : ?>
 
-						<?php else : ?>
-
-							<li><a href="my_account.php?my_orders"><button type="button" class="btn header-button" data-toggle="tooltip" data-placement="top" title="Account">
-										<i class="fa fa-user"></i>
-									</button></a></li>
-							<li><a href="../logout.php"><button type="button" class="btn header-button" data-toggle="tooltip" data-placement="top" title="Logout">
-										<i class="fas fa-sign-in-alt"></i>
-									</button></a></li>
-
-						<?php endif ?>
-
-					</ul>
-
-					<nav class="navbar navbar-expand-lg ">
-						<div class="container-fluid m-0 p-0">
-
-							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-							</button>
-
-							<div class="collapse navbar-collapse" id="navbarNav">
-								<ul class="main-nav nav navbar-nav">
-									<?php if (!isset($_SESSION['c_email'])) : ?>
-
-									<?php else : ?>
-
-										<li><i class="header-icons fas fa-home"></i><a class="<?php if ($page_title == 'Home - Kasi Mall Online') {
-																									echo "active";
-																								} ?>" href="../index.php">eKhaya</a></li>
-										<li><i class="header-icons fas fa-store"></i><a class="<?php if ($page_title == 'Shops - Kasi Mall Online') {
-																									echo "active";
-																								} ?>" href="../shop.php">diShopo</a></li>
-
-										<li><i class="header-icons fa fa-shopping-cart"></i><a class="<?php if ($page_title ==  'Cart - Kasi Mall Online') {
+								<li class="nav-item"><i class="header-icons fas fa-home"></i><a class="<?php if ($page_title == 'Kasi Mall Online') {
 																											echo "active";
-																										} ?>" href="../cart.php">iTrolley</a></li>
-										<li><i class="header-icons fas fa-search-location"></i><a class="<?php if ($page_title ==  'Cart - Kasi Mall Online') {
-																												echo "active";
-																											} ?>" href="">amaKasi</a></li>
+																										} ?> nav-link" href="../index.php">eKhaya</a></li>
+								<li><i class="header-icons fas fa-store"></i><a class="<?php if ($page_title == 'Dishopo - Kasi Mall Online') {
+																							echo "active";
+																						} ?>" href="../shop.php">Dishopo</a></li>
+
+								<li><i class="header-icons fa fa-shopping-cart"></i><a class="<?php if ($page_title ==  'iTrolley - Kasi Mall Online') {
+																									echo "active";
+																								} ?>" href="../cart.php">iTrolley</a></li>
+								<li><i class="header-icons fas fa-search-location"></i><a class="<?php if ($page_title ==  'AmaKasi - Kasi Mall Online') {
+																										echo "active";
+																									} ?>" href="">Amakasi</a></li>
+								<li><i class="header-icons fa fa-user"></i><a class="<?php if ($page_title ==  'iAccount - Kasi Mall Online') {
+																										echo "active";
+																									} ?>" href="customer/my_account.php?my_orders">iAccount</a></li>
 
 
-									<?php endif ?>
-								</ul>
-							</div>
-						</div>
+							<?php else : ?>
+
+								<li><i class="header-icons fas fa-home"></i><a class="<?php if ($page_title == 'eKhaya - Kasi Mall Online') {
+																							echo "active";
+																						} ?>" href="../index.php">eKhaya</a></li>
+								<li><i class="header-icons fas fa-store"></i><a class="<?php if ($page_title == 'diShopop - Kasi Mall Online') {
+																							echo "active";
+																						} ?>" href="shop.php">Dishopo</a></li>
+
+								<li><i class="header-icons fa fa-shopping-cart"></i><a class="<?php if ($page_title ==  'iTrolley - Kasi Mall Online') {
+																									echo "active";
+																								} ?>" href="cart.php">iTrolley</a></li>
+								<li><i class="header-icons fas fa-search-location"></i><a class="<?php if ($page_title ==  'Amakasi - Kasi Mall Online') {
+																									echo "active";
+																								} ?>" href="">AmaKasi</a></li>
+								<li><i class="header-icons fa fa-user"></i><a class="<?php if ($page_title ==  'iAccount - Kasi Mall Online') {
+																									echo "active";
+																								} ?>" href="customer/my_account.php?my_orders">iAccount</a></li>
+
+							<?php endif ?>
+						</ul>
+
+
 					</nav>
 				</div>
 			</div>
