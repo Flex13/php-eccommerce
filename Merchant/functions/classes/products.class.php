@@ -19,6 +19,8 @@ if ((isset($_SESSION['m_id']) || isset($_GET['products']))) {
    
     $row = $stmt->fetch();
     $count = $row[0];
+
+    
     
 
     $shop_encode_id = base64_encode("encodeuserid{$shop_id}");

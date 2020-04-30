@@ -298,4 +298,74 @@ function successMessage() {
     }
 }
 
+function isValidImage($file){ 
+    $form_errors = array();
+
+    //split file name into an array using the dot (.)
+    $part = explode(".", $file);
+
+    //target the last element in the array
+    $extension = end($part);
+
+    switch(strtolower($extension)) {
+        case 'jpg';
+        case 'gif';
+        case 'bmp';
+        case 'png';
+
+        return $form_errors;
+    }
+
+    $form_errors[] =    $extension . "is not a valid image";
+    return $form_errors;
+}
+
+function uploadProduct($shop_hidden_username) {
+
+
+    if($_FILES['image']['tmp_name']) {
+
+        //fle in the temp location
+        $temp_file1 = $_FILES['image']['tmp_name'];
+
+        $ext1 = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+
+        $filename1 = $shop_hidden_username."product1".".{$ext1}";
+
+
+        $path1 = "uploads/{$filename1}";
+
+        move_uploaded_file($temp_file1,$path1);
+
+        return $path1;
+        
+    }
+    return false;
+}
+
+function uploadShopImage($shop_owner_username) {
+
+
+    if($_FILES['image']['tmp_name']) {
+
+        //fle in the temp location
+        $temp_file1 = $_FILES['image']['tmp_name'];
+
+        $ext1 = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+
+        $filename1 = $shop_owner_username."shopimage1".".{$ext1}";
+
+
+        $path1 = "uploads/{$filename1}";
+
+        move_uploaded_file($temp_file1,$path1);
+
+        return $path1;
+        
+    }
+    return false;
+}
+
+
+
 ?> 

@@ -26,20 +26,19 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
 			<!-- TOP HEADER -->
-			<div class="shop-notice">
+			<a href=""><div class="shop-notice">
+				<div class="shop-notice-header">
+				<i class="fas fa-truck"></i>
+				</div>
 				<div class="shop-notice-body">
-					<h3>Check Your Delivery Order Status</h3>
+				<p>Check Your Delivery Order Status</p>
 				</div>
-				<div class="shop-notice-img">
-					<img src="images/a2b.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
+			</div></a>
 
 			<div class="shop-notice1">
 				<div class="shop-notice-header1">
 					<a href="www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/videos"><img src="images/covid.jpg" class="img-fluid" alt=""></a>
 				</div>
-
 
 				<div class="shop-notice-body1">
 					<p>Lets work together and fight this as a nation, hlala eKhaya, Dula Hae, Stay at home</p>

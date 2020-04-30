@@ -65,14 +65,13 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label>Your Shop Picture</label>
-                <input type="file" class="form-height-custom" name="shop_image"><br>
+                <input type="file" class="form-height-custom" name="image"><br>
             </div>
         </div>
     </div>
 
 
     <input type="hidden" name="hidden_shop_id" value="<?php if (isset($shop_id)) echo $shop_id; ?>">
-    <input type="hidden" name="hidden_shop_username" value="<?php if (isset($shop_owner_username)) echo $shop_owner_username; ?>">
     <input type="hidden" name="token" value="<?php if (function_exists('_token'))  echo _token(); ?>">
 
     <div class="footer text-center m-0 p-0 ">

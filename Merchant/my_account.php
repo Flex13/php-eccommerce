@@ -20,6 +20,12 @@
                 <div id="" class="col-md-8">
                     <?php echo errorMessage(); ?><?php echo successMessage(); ?>
                     <!-- box Begin -->
+
+                    <?php
+                    if (isset($_GET['s_profile'])) {
+                        include("shopprofile/shop_profile.php");
+                    }
+                    ?>
                     <?php
                     if (isset($_GET['s_details'])) {
                         include("shopprofile/shopdetails.php");

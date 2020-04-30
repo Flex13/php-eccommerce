@@ -17,6 +17,7 @@
                     <!-- thead Begin -->
                     <tr>
                         <!-- tr Begin -->
+                        <th>Product</th>
                         <th>Name</th>
                         <th>Category Name</th>
                         <th>Price</th>
@@ -39,14 +40,16 @@
                         $product_name  = $rs['product_name'];
                         $product_description  = $rs['product_description'];
                         $product_price  = $rs['product_price'];
+                        $product1  = $rs['product1'];
                         ?>
                     
                     <tr>
                         <!-- tr Begin -->
+                        <td><img class="img-fluid" src="<?php if(isset($product1)) echo $product1; ?>" alt="Product1"         style="width: auto; height: 35px;"></td>
                         <td><?php if(isset($product_name)) echo $product_name; ?></td>
                         <td><?php if(isset($shop_category_name)) echo $shop_category_name; ?></td>
                         <td>R <?php if(isset($product_price)) echo $product_price; ?></td>
-                        <td><a href="products.php?view_product==<?php if (isset($product_id)) echo $product_id; ?>" class="btn table-link-info btn-block">View</a></td>
+                        <td><a href="products.php?view_product=<?php if (isset($product_id)) echo $product_id; ?>" class="btn table-link-success btn-block">View</a></td>
                         <td><a href="products.php?edit_product=<?php if (isset($product_id)) echo $product_id; ?>" class="btn table-link-info btn-block">Edit</a></td>
                         <td><a href="products.php?delete_product=<?php if (isset($product_id)) echo $product_id; ?>" class="btn table-link-danger btn-block"><i class="fa fa-trash"></i> Delete</a></td>
                         <?php }?>

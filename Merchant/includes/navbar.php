@@ -1,91 +1,68 @@
 <body>
+
+
+
+
 	<!-- HEADER -->
 	<header>
-		<!-- TOP HEADER -->
-		<div id="top-header">
-			<div class="container">
-				<ul class="header-links pull-left"><i class="hide"><?php echo guard(); ?></i>
+		<div id="navigation" class="container justify-content-center text-center">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+				<div class="header-logo">
+					<a href="index.php" class="logo">
+						<img src="uploads/kasilogo.jpg" alt="kasi-logo">
+					</a>
+				</div>
+			</div>
+
+			<div class="col-sm-12 col-md-12 col-lg-12">
+				<ul class="header-links text-center"><i class="hide"><?php echo guard(); ?></i>
 					<li><a href="#"><i class="fa fa-user-circle"></i>
-							<?php if (!isset($_SESSION['c_email'])) : ?>
-								Welcome: Guest
+							<?php if (!isset($_SESSION['m_email'])) : ?>
 							<?php else : ?>
-								Welcome: <?php echo $_SESSION['c_username']; ?>
+								Welcome: <?php echo $_SESSION['m_username']; ?> (Shop Admin)
 							<?php endif ?>
 						</a></li>
 				</ul>
-				<ul class="header-links pull-right">
-
-					<li><a href="../customer/my_account.php?my_orders"><i class="fa fa-user"></i> Back to my Account</a></li>
-					<li><a href="../logout.php"><i class="fas fa-sign-in-alt"></i> Logout</a></li>
-
-				</ul>
 			</div>
-		</div>
-		<!-- /TOP HEADER -->
+			<div class="col-sm-12 col-md-12 col-lg-12 justify-content-center text-center">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+				</button>
 
-		<!-- MAIN HEADER -->
-		<div id="header">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
+				<div class="collapse navbar-collapse justify-content-center text-center" id="navbarNav">
+					<nav class="navbar navbar-expand-lg nav justify-content-center text-center sticky-top">
+						<!-- NAV -->
+						<ul class="main-nav nav navbar-nav">
 
-					<!-- ACCOUNT -->
-					<div class="col-md-3 clearfix">
-						<div class="header-ctn">
+							<li><a class="<?php if ($page_title == 'Shop Categories - Kasi Mall Online') {
+												echo "active";
+											} ?>" href="category.php?categories=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Categories</a></li>
+							<li><a class="<?php if ($page_title == 'Shop Products - Kasi Mall Online') {
+												echo "active";
+											} ?>" href="products.php?products=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Products</a></li>
+							<li><a class="<?php if ($page_title == 'Shop Orders - Kasi Mall Online') {
+												echo "active";
+											} ?>" href="orders.php?my_orders=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Orders</a></li>
+							<li><a class="<?php if (isset($_GET['customers'])) {
+												echo "active";
+											} ?>" href="index.php?customers">My Customers</a></li>
 
-							<!-- Menu Toogle -->
-							<div class="menu-toggle">
-								<a href="#">
-									<i class="fa fa-bars"></i>
-									<span>Menu</span>
-								</a>
-							</div>
-							<!-- /Menu Toogle -->
-						</div>
-					</div>
-					<!-- /ACCOUNT -->
+							<li class="dropdown"><a data-toggle="dropdown" id="navbardrop" class="nav-link dropdown-toggle <?php if ($page_title == 'Shop Profile - Kasi Mall Online') {
+																echo "active";
+															} ?>">My Account</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="my_account.php?s_details=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Shop Profile</a>
+									<a class="dropdown-item" href="index.php?reviews">Reviews</a>
+									<a class="dropdown-item" href="../customer/my_account.php?my_orders">Back Customer Admin</a>
+									<a class="dropdown-item" href="../logout.php">Logout</a>
+								</div>
+							</>
+
+						</ul>
+
+
+					</nav>
 				</div>
-				<!-- row -->
 			</div>
-			<!-- container -->
 		</div>
-		<!-- /MAIN HEADER -->
 	</header>
-	<!-- /HEADER -->
-
-	<!-- NAVIGATION -->
-	<nav id="navigation" class="navbar navbar-expand-lg nav justify-content-center sticky-top">
-		<!-- container -->
-		<div class="container">
-			<!-- responsive-nav -->
-			<div id="responsive-nav">
-				<!-- NAV -->
-				<ul class="main-nav nav navbar-nav mx-auto">
-
-					<li><a class="<?php if ($page_title == 'Shop Categories - Kasi Mall Online') {
-										echo "active";
-									} ?>" href="category.php?categories=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Categories</a></li>
-					<li><a class="<?php if ($page_title == 'Shop Products - Kasi Mall Online') {
-										echo "active";
-									} ?>" href="products.php?products=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Products</a></li>
-					<li><a class="<?php if ($page_title == 'Shop Orders - Kasi Mall Online') {
-										echo "active";
-									} ?>" href="orders.php?my_orders=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">Orders</a></li>
-					<li><a class="<?php if (isset($_GET['customers'])) {
-										echo "active";
-									} ?>" href="index.php?customers">Customers</a></li>
-					<li><a class="<?php if (isset($_GET['reviews'])) {
-										echo "active";
-									} ?>" href="index.php?reviews">Reviews</a></li>
-					<li><a class="<?php if ($page_title == 'Shop Profile - Kasi Mall Online') {
-										echo "active";
-									} ?>" href="my_account.php?s_details=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>">My Account</a></li>
-				</ul>
-				<!-- /NAV -->
-			</div>
-			<!-- /responsive-nav -->
-		</div>
-		<!-- /container -->
-	</nav>
-	<!-- /NAVIGATION -->

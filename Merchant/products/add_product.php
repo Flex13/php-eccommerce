@@ -18,22 +18,22 @@
 
             <div class="col-md-6">
                 <div class="form-group">
-                    
-                    <label class="form-label">Product Category</label>
-                    
-                    <select name="Category" class="form-control">
-                            <option value="">Please Select Category</option>
-                    <?php while ($rs = $stmt->fetch()) {
-                        $shop_category_id = $rs['cat_id'];
-                        $shop_category_name  = $rs['category_name'];
-                    ?>
 
-                        
+                    <label class="form-label">Product Category</label>
+
+                    <select name="Category" class="form-control">
+                        <option value="">Please Select Category</option>
+                        <?php while ($rs = $stmt->fetch()) {
+                            $shop_category_id = $rs['cat_id'];
+                            $shop_category_name  = $rs['category_name'];
+                        ?>
+
+
                             <option value="<?php echo $shop_category_name; ?>"> <?php echo $shop_category_name; ?></option>
-                            
+
                         <?php } ?>
-                        </select>
-                        <small>Please add categories before adding products</small>
+                    </select>
+                    <small>Please add categories before adding products</small>
                 </div>
             </div>
         </div>
@@ -54,8 +54,22 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="form-label"> Product Image 1 </label>
+                    <input name="image" type="file">
+                </div>
+            </div>
+
+            
+
+
+        </div>
+
 
         <input type="hidden" name="hidden_shop_id" value="<?php if (isset($shop_id)) echo $shop_id; ?>">
+        <input type="hidden" name="hidden_shop_username" value="<?php if (isset($shop_username)) echo $shop_username; ?>">
         <input type="hidden" name="token" value="<?php if (function_exists('_token'))  echo _token(); ?>">
 
         <div class="footer text-center mt-4 p-0 ">

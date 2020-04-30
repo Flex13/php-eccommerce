@@ -37,17 +37,24 @@
                     }
                     ?>
 
-<?php
+                    <?php
                     if (isset($_GET['edit_product'])) {
                         include_once('functions/classes/editProduct.class.php');
                         include("products/edit_product.php");
                     }
                     ?>
 
-<?php
+                    <?php
                     if (isset($_GET['delete_product'])) {
                         include_once('functions/classes/deleteProduct.class.php');
                         include("products/delete_product.php");
+                    }
+                    ?>
+
+                    <?php
+                    if (isset($_GET['view_product_images'])) {
+                        
+                        include("products/add_images.php");
                     }
                     ?>
 
@@ -57,7 +64,7 @@
 
                 <!-- ASIDE -->
                 <div id="aside" class="col-md-3">
-                <?php include("products/sidebar.php"); ?>
+                    <?php include("products/sidebar.php"); ?>
 
                 </div>
                 <!-- /row -->

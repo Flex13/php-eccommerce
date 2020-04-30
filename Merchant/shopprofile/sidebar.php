@@ -6,7 +6,11 @@
         <div class="input-checkbox">
 
             <ul class="nav nav-pills flex-column category-menu">
-            
+            <li>
+                    <a class="profile-menu <?php if (isset($_GET['s_profile'])) {
+                                                echo "active";
+                                            } ?>" href="my_account.php?s_profile=<?php if (isset($shop_encode_id)) echo $shop_encode_id; ?>"><i class="fas fa-store-alt"></i> Shop Profile</a>
+                </li>
 
 
                 <li>
