@@ -3,25 +3,6 @@
 <?php include('includes/navbar.php'); ?>
 
 
-<!-- BREADCRUMB -->
-<div id="breadcrumb" class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="breadcrumb-tree">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a class="active">Shopping Cart</a></li>
-                </ul>
-            </div>
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /BREADCRUMB -->
-
 <div id="cart" class="section">
     <!-- container -->
     <div class="container">

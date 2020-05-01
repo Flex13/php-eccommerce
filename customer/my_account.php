@@ -1,7 +1,4 @@
-
- 
-
-<?php session_start(); 
+<?php session_start();
 include("functions/db.php");
 include("functions/functions.php");
 ?>
@@ -12,24 +9,6 @@ include("functions/functions.php");
     <?php include('includes/navbar.php'); ?>
     <link rel="stylesheet" href="styles/style.css" />
 
-    <!-- BREADCRUMB -->
-<div id="breadcrumb" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<ul class="breadcrumb-tree">
-                            <li><a href="../index.php">Home</a></li>
-                            <li><a href="">My Account</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /BREADCRUMB -->
 
 
     <!-- SECTION -->
@@ -43,8 +22,8 @@ include("functions/functions.php");
                 <!-- STORE -->
                 <div id="store" class="col-md-9">
 
-                <?php echo errorMessage(); ?>
-<?php echo successMessage(); ?>
+                    <?php echo errorMessage(); ?>
+                    <?php echo successMessage(); ?>
 
                     <!-- box Begin -->
                     <?php
@@ -107,11 +86,11 @@ include("functions/functions.php");
     <?php include('includes/shopfooter.php'); ?>
 
 
-    
+
 
 <?php else : ?>
     <?php
     $_SESSION["errorMessage"] =  "Please login first to view account page";
     echo "<script>window.open('../login.php','_self')</script>";
-?>
+    ?>
 <?php endif ?>

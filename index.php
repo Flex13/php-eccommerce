@@ -3,48 +3,25 @@
 <?php include('includes/navbar.php'); ?>
 
 
-<!-- BREADCRUMB -->
-<div id="breadcrumb" class="section">
-	<!-- container -->
-	<div class="container">
-		<!-- row -->
-		<div class="row">
-			<div class="col-md-12">
-				<ul class="breadcrumb-tree">
-					<li><a href="index.php">Home</a></li>
-				</ul>
-			</div>
-		</div>
-		<!-- /row -->
-	</div>
-	<!-- /container -->
-</div>
-<!-- /BREADCRUMB -->
-
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
 			<!-- TOP HEADER -->
-			<a href=""><div class="shop-notice">
-				<div class="shop-notice-header">
-				<i class="fas fa-truck"></i>
-				</div>
-				<div class="shop-notice-body">
-				<p>Check Your Delivery Order Status</p>
-				</div>
-			</div></a>
+			<section class="laptop">
+				<a href="">
+					<div class="shop-notice">
+						<div class="shop-notice-header">
+							<i class="fas fa-truck"></i>
+						</div>
+						<div class="shop-notice-body">
+							<p>Check Your Delivery Order Status</p>
+						</div>
+					</div>
+				</a>
+			</section>
 
-			<div class="shop-notice1">
-				<div class="shop-notice-header1">
-					<a href="www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/videos"><img src="images/covid.jpg" class="img-fluid" alt=""></a>
-				</div>
 
-				<div class="shop-notice-body1">
-					<p>Lets work together and fight this as a nation, hlala eKhaya, Dula Hae, Stay at home</p>
-					<a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/videos" target="_blank" class="btn primary-btn">Read More</a>
-				</div>
-			</div>
 
 			<div style="width: 100%; background-color: white; padding: 10px 0px 10px 0px; text-align: center; box-sizing: border-box;">
 				<a style="display: flex; justify-content: center; flex-wrap: wrap; width:100%; text-decoration:none; text-align:center;" href="https://sacoronavirus.co.za/">
@@ -78,192 +55,110 @@
 
 			<!-- /TOP HEADER -->
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 p-0">
+
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 p-0">
 			<div id="location" class="section">
 				<!-- container -->
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-sm-12 col-md-12 col-lg-12">
 							<!-- row -->
-							<div class="row px-5 mb-5">
-								<?php echo errorMessage(); ?>
-								<?php echo successMessage(); ?>
-								<div class="container text-center">
-									<h1 class="main-title">AMAKASI</h1>
-								</div>
+							<div class="container text-center">
+								<h1 class="main-title">AMAKASI</h1>
+							</div>
 
-
-								<!-- shop -->
-								<div class="col-md-4 col-xs-6">
-									<div class="shop">
-										<div class="shop-body">
+							<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+								<div class="carousel-inner index">
+									<div class="carousel-item active">
+									<div class="shop-body  text-center">
+											<h3>Soweto</h3>
+											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+										<img src="images/soweto1.jpg" class="d-none d-block w-100" alt="...">
+										
+									</div>
+									<div class="carousel-item">
+									<div class="shop-body text-center">
 											<h3>Alex</h3>
 											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 
-										<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-											<div class="carousel-inner">
-												<div class="carousel-item active">
-													<div class="shop-img">
-														<img src="images/alex1.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-												<div class="carousel-item">
-													<div class="shop-img">
-														<img src="images/alex2.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-												<div class="carousel-item">
-													<div class="shop-img">
-														<img src="images/alex3.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-
-											</div>
-										</div>
-
+										<img src="images/alex3.jpg" class="d-block w-100" alt="...">
 									</div>
-								</div>
-								<!-- /shop -->
-
-								<!-- shop -->
-								<div class="col-md-4 col-xs-6">
-									<div class="shop">
-										<div class="shop-body">
-											<h3>Soweto</h3>
-											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-
-										<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-											<div class="carousel-inner">
-												<div class="carousel-item active">
-													<div class="shop-img">
-														<img src="images/soweto1.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-												<div class="carousel-item">
-													<div class="shop-img">
-														<img src="images/soweto2.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-												<div class="carousel-item">
-													<div class="shop-img">
-														<img src="images/soweto3.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-
-												<div class="carousel-item">
-													<div class="shop-img">
-														<img src="images/soweto4.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-
-											</div>
-										</div>
-
-
-									</div>
-								</div>
-								<!-- /shop -->
-
-								<!-- shop -->
-								<div class="col-md-4 col-xs-6">
-									<div class="shop">
-										<div class="shop-body">
+									<div class="carousel-item">
+									<div class="shop-body  text-center">
 											<h3>Vaal</h3>
 											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
-
-										<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-											<div class="carousel-inner">
-												<div class="carousel-item active">
-													<div class="shop-img">
-														<img src="images/vaal3.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-												<div class="carousel-item">
-													<div class="shop-img">
-														<img src="images/vaal4.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-												<div class="carousel-item">
-													<div class="shop-img">
-														<img src="images/shap.jpg" class="img-fluid carousel-img" alt="">
-													</div>
-												</div>
-
-											</div>
-										</div>
-
-
-									</div>
+										<img src="images/vaal3.jpg" class="d-block w-100" alt="...">
+										
 								</div>
-								<!-- /shop -->
+								<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
 							</div>
+
 							<!-- /row -->
-						</div>
-					</div>
 
-					<div class="row">
-						<div class="col-sm-12 col-md-12 col-lg-12">
-
-							<div class="row px-5 mb-5">
-
-								<div class="container text-center">
-									<h1 class="main-title">Categories</h1>
-								</div>
-
-
-								<!-- shop -->
-								<div class="col-md-4 col-xs-6">
-									<div class="shop">
-										<div class="shop-body">
-											<h3>Amapapa</h3>
-											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-										<div class="shop-img">
-											<img src="images/food.jpg" class="img-fluid" alt="">
-										</div>
-
-									</div>
-								</div>
-								<!-- /shop -->
-
-								<!-- shop -->
-								<div class="col-md-4 col-xs-6">
-									<div class="shop">
-										<div class="shop-body">
-											<h3>Fashion</h3>
-											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-										<div class="shop-img">
-											<img src="images/fashion.jpg" class="img-fluid" alt="">
-										</div>
-
-									</div>
-								</div>
-								<!-- /shop -->
-
-								<!-- shop -->
-								<div class="col-md-4 col-xs-6">
-									<div class="shop">
-										<div class="shop-body">
-											<h3>Spinza</h3>
-											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-										<div class="shop-img">
-											<img src="images/spinza2.jpg" class="img-fluid" alt="">
-										</div>
-
-									</div>
-								</div>
-								<!-- /shop -->
-							</div>
 						</div>
 					</div>
 				</div>
 
+				<div class="container-fluid mt-5">
+					<div class="row">
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<!-- row -->
+							<div class="container text-center">
+								<h1 class="main-title">Categories</h1>
+							</div>
 
+							<div id="carouselExampleFade2" class="carousel slide carousel-fade" data-ride="carousel">
+								<div class="carousel-inner index">
+									<div class="carousel-item active">
+									<div class="shop-body  text-center">
+											<h3>Amapapa</h3>
+											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+										<img src="images/food.jpg" class="d-none d-block w-100" alt="...">
+										
+									</div>
+									<div class="carousel-item">
+									<div class="shop-body text-center">
+											<h3>Fashion</h3>
+											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+
+										<img src="images/fashion.jpg" class="d-block w-100" alt="...">
+									</div>
+									<div class="carousel-item">
+									<div class="shop-body  text-center">
+											<h3>Spinza</h3>
+											<a href="shop.php" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+										<img src="images/spinza2.jpg" class="d-block w-100" alt="...">
+										
+								</div>
+								<a class="carousel-control-prev" href="#carouselExampleFade2" role="button" data-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="carousel-control-next" href="#carouselExampleFade2" role="button" data-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
+							</div>
+
+							<!-- /row -->
+
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

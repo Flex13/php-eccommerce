@@ -775,7 +775,7 @@ ul.header-links {
 \*----------------------------*/
 
 .header-search {
-  padding: 15px 0px;
+  padding: 15px 10px;
   margin-top: 20px;
 }
 
@@ -934,74 +934,90 @@ ul.header-links {
 /*=========================================================
 	03 -> Navigation
 ===========================================================*/
-@media only screen and (min-width: 992px) {
-  #navigation {
-    background: #FFF;
-  }
-
-  .navbar {
-    padding: 10px 0px;;
-    margin-top: 20px;
-  }
-
-  svg.header-icons {
-    font-size: 11px;
-    color: #FF8800;
-  }
-
-  .main-nav>li+li {
-    margin-left: 10px;
-    text-align: center;
-  }
-
-  .main-nav>li>a {
-    font-size: 15px;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-    font-weight: 400;
-  }
-
-
-}
-
 
 /*----------------------------*\
 	Main nav
 \*----------------------------*/
 
-.main-nav>li {
-  text-align: center;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+/*----------------------------*\
+	responsive nav
+\*----------------------------*/
+
+@media (max-width: 767px) {
+
+.laptop {
+  display: none;
+}
+.header-logo .logo img {
+  display: block;
+    margin: 0px;
+    padding: 0;
+  height: 180px
+
 }
 
-.main-nav>li+li {
-  margin-left: 30px;
-  text-align: center;
+#mobile-width.col-sm-6.col-md-6 {
+  width: 50%;
 }
 
-svg.header-icons {
-  font-size: 20px;
-  color: #FF8800;
+#mobile-width2.col-sm-6.col-md-6 {
+  width: 50%;
 }
 
-.main-nav>li>a {
-  padding: 0px 0px;
-  font-size: 17px;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
-}
+  nav.navbar {
+    padding: 0px;
+    margin-top: 20px;
+  }
 
-.main-nav>li>a.active {
-  font-weight: bold;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-}
+  svg.header-icons {
+    font-size: 20px;
+    color: #FF8800;
+  }
 
-.main-nav>li>a:hover,
+  .main-nav {
+    margin: 0px;
+    float: none;
+    display: contents;
+  }
+
+  .main-nav>li {
+    text-align: center;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    display: block;
+    float: none;
+  }
+
+  .main-nav>li+li {
+    margin-left: 0px;
+    text-align: center;
+  }
+
+ 
+
+  .main-nav>li>a {
+    color: #252734;
+    font-size: 12px;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+  }
+
+  
+
+  .main-nav>li>a.active {
+    color: #252734;
+    font-weight: bold;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .main-nav>li>a:hover,
 .main-nav>li>a:focus,
 .main-nav>li.active>a {
   color: #252734;
   background-color: transparent;
   font-weight: 700;
 }
+
 
 .main-nav>li>a:after {
   content: "";
@@ -1020,15 +1036,122 @@ svg.header-icons {
   color: black;
 }
 
-.header-ctn li.nav-toggle {
-  display: none;
+  
+  .header-search {
+    padding: 15px 0px;
+    margin-top: 0;
+  }
+
+ button.search-btn2 {
+    height: 35px;
+    width: 100%;
+    background: linear-gradient(40deg, #ffd86f, #fc6262) !important;
+    color: #FFF;
+    font-weight: 400;
+    border: none;
+    border-radius: 15px;
+    margin-top: 20px;
+  }
+
+  .shop-notice2 {
+    position: relative;
+    background-color: transparent;
+    padding-top: 20px;
+  }
+  
+  .shop-notice2 .shop-notice-header2 {
+    width: 100%;
+    padding: 5px 0px;
+    color: #FF8800;
+    text-align: center;
+  }
+  
+  .shop-notice2 .shop-notice-body2 {
+    width: 100%;
+    z-index: 10;
+  } 
+  .shop-notice2 .shop-notice-body2 p {
+    color: #FF8800;
+    font-size: 15px;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+  }
+
+  svg.fa-truck {
+    font-size: 20px;
+    color: #FF8800;
 }
 
-/*----------------------------*\
-	responsive nav
-\*----------------------------*/
+}
 
-@media only screen and (max-width: 575.95px) {
+
+@media only screen and (min-width: 768px) {
+  .Mobile{
+    display: none;
+  }
+  
+  #navigation {
+    background: #FFF;
+
+  }
+
+
+  svg.header-icons {
+    font-size: 25px;
+    color: #FF8800;
+  }
+
+  .main-nav>li {
+    text-align: center;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    display: block;
+    float: none;
+  }
+
+  .main-nav>li+li {
+    margin-left: 30px;
+    text-align: center;
+  }
+
+  .main-nav>li>a {
+    font-size: 15px;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    color: #252734;
+    padding: 0px 0px;
+  }
+
+  .main-nav>li>a.active {
+    font-weight: bold;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+    color: #252734;
+  }
+
+  .main-nav>li>a:hover,
+.main-nav>li>a:focus,
+.main-nav>li.active>a {
+  color: #252734;
+  background-color: transparent;
+  font-weight: 700;
+}
+
+
+.main-nav>li>a:after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: #FF8800;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.main-nav>li>a:hover:after,
+.main-nav>li>a:focus:after,
+.main-nav>li.active>a:after {
+  width: 100%;
+  color: black;
+}
 
   nav.navbar {
     padding: 0px;
@@ -1041,88 +1164,10 @@ svg.header-icons {
     display: contents;
   }
 
-  .main-nav>li {
-    display: block;
-    float: none;
-  }
 
-  .main-nav>li+li {
-    margin-left: 0px;
-  }
-
-  .main-nav>li>a {
-    color: #252734;
-    font-size: 12px;
-  }
-
-  .main-nav>li>a.active {
-    color: #252734;
-  }
 }
 
-@media only screen and (max-width: 768.95px) {
 
-  nav.navbar {
-    padding: 0px;
-    margin-top: 20px;
-  }
-
-  .main-nav {
-    margin: 0px;
-    float: none;
-    display: contents;
-  }
-
-  .main-nav>li {
-    display: block;
-    float: none;
-  }
-
-  .main-nav>li+li {
-    margin-left: 0px;
-  }
-
-  .main-nav>li>a {
-    color: #252734;
-    font-size: 12px;
-  }
-
-  .main-nav>li>a.active {
-    color: #252734;
-  }
-}
-
-@media only screen and (max-width: 991.98px) {
-
-  nav.navbar {
-    padding: 0px;
-    margin-top: 20px;
-  }
-
-  .main-nav {
-    margin: 0px;
-    float: none;
-    display: contents;
-  }
-
-  .main-nav>li {
-    display: block;
-    float: none;
-  }
-
-  .main-nav>li+li {
-    margin-left: 0px;
-  }
-
-  .main-nav>li>a {
-    color: #252734;
-    font-size: 12px;
-  }
-
-  .main-nav>li>a.active {
-    color: #252734;
-  }
-}
 
 /*=========================================================
 	04 -> CATEGORY SHOP
@@ -1130,7 +1175,8 @@ svg.header-icons {
 
 #location {
   width: 100%;
-  background-image: linear-gradient(rgba(249, 101, 52, 0.6), rgba(249, 101, 52, 0.6)),
+  height: 100%;
+  background-image: linear-gradient(rgba(249, 101, 52, 0.8), rgba(249, 101, 52, 0.8)),
     url("https://www.sabcnews.com/sabcnews/wp-content/uploads/2019/06/soweto.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -1174,30 +1220,7 @@ h1.main-title {
   transform: scale(1.1);
 }
 
-.shop .shop-body {
 
-  width: 100%;
-  height: 100%;
-  padding: 30px;
-  z-index: 10;
-}
-
-.shop .shop-body h3 {
-  color: white;
-  font-size: 25px;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-}
-
-.shop .shop-body .cta-btn {
-  color: white;
-  text-transform: uppercase;
-  font-size: 13px;
-}
-
-img.img-fluid.carousel-img {
-  height: 300px;
-  border-radius: 25px;
-}
 
 
 
@@ -2857,14 +2880,7 @@ h3.profile-title {
     margin-top: 5px;
   }
 
-  .header-logo {
-    float: none;
-    text-align: center;
-  }
 
-  .header-logo .logo {
-    display: inline-block;
-  }
 
   #product-imgs {
     margin-bottom: 60px;
