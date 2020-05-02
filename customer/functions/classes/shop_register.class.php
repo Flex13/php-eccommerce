@@ -12,7 +12,7 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
         $form_errors = array();
 
         //Form validation to be passed to function of check_empty_fields();
-        $required_fields = array( 'Name', 'Email', 'Contact', 'Province', 'City','Password');
+        $required_fields = array('Name', 'Email', 'Contact', 'Province', 'City', 'Password');
 
         //call the function to check empty field and merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
@@ -42,19 +42,19 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
         $shop_date               = current_date();
 
         //CHeck Email exists 
-         if (checkDuplicateShopEmail($shop_email, $db)) {
+        if (checkDuplicateShopEmail($shop_email, $db)) {
             $result = flashMessage("Email Already Taken, please try another one");
         } else if ($shop_password != $shop_cpassword) {
-            $result = flashMessage("Passwords to do not match, Please try again"); 
+            $result = flashMessage("Passwords to do not match, Please try again");
         } else if (empty($form_errors)) {
 
-             //hash the password input
-             $shop_password_hash = password_hash($shop_password, PASSWORD_DEFAULT);
+            //hash the password input
+            $shop_password_hash = password_hash($shop_password, PASSWORD_DEFAULT);
 
             $sqlQuery = "SELECT * FROM customers WHERE id = :id";
             $statement = $db->prepare($sqlQuery);
             $statement->execute(array('id' => $user_hidden_id));
-        
+
             while ($rs = $statement->fetch()) {
                 $shop_owner_user_id = $rs['id'];
                 $shop_owner_username = $rs['c_username'];
@@ -62,7 +62,7 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
                 $shop_owner_surname = $rs['c_surname'];
                 $shop_owner_gender = $rs['c_gender'];
             }
-            
+
 
 
             try {
@@ -75,7 +75,7 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
                 $statement = $db->prepare($insert_merchant);
 
                 // Add the data into the database 
-                $statement->execute(array(':id' => $shop_owner_user_id, ':shopname' => $shop_name,':username' => $shop_owner_username, ':email' => $shop_email, ':password' => $shop_password_hash, ':date' => $shop_date, ':name' => $shop_owner_name, ':surname' => $shop_owner_surname, ':contact' => $shop_contact, ':gender' => $shop_owner_gender, ':province' => $shop_province, ':city' => $shop_city));
+                $statement->execute(array(':id' => $shop_owner_user_id, ':shopname' => $shop_name, ':username' => $shop_owner_username, ':email' => $shop_email, ':password' => $shop_password_hash, ':date' => $shop_date, ':name' => $shop_owner_name, ':surname' => $shop_owner_surname, ':contact' => $shop_contact, ':gender' => $shop_owner_gender, ':province' => $shop_province, ':city' => $shop_city));
 
                 //Check is one data was created in database the echo result
                 if ($statement->rowcount() == 1) {
@@ -85,15 +85,35 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
 
                     //prepare email body
                     $mail_body = '<html>
-                <body style="background-color:#CCCCCC; color:#000; font-family: Arial, Helvetica, sans-serif;
-                                    line-height:1.8em;">
-                <h2>Kasi Mall Online - Shop Login Details</h2>
-                <p>Hi '.$shop_owner_name.' '.$shop_owner_surname.'<br><br>
+                    <style type="text/css">
+                    .link__btn:hover {
+                        background-color: #00c551 !important
+                    }
+                </style>
+                <div style="background-color: #FF8800; padding: 20px 0; margin:0">
+                <div style="max-width:600px; margin:0 auto; padding: 40px; background:#ffffff; font-size: 14px; border:1px solid #cccccc; border-radius: 4px; font-family: arial,sans-serif; line-height: 1.7em; color: #555555">
+
+
+
+                <h2  style="font-weight:600; color: #FF8800;>Kasi Mall Online - Shop Activation</h2>
+                <p>Hi <b>' . $shop_owner_name . ' ' . $shop_owner_surname . '</b><br><br>
                 Welcome to Kasi Mall Online. Thank you for registering as a Merchant. Please Login and update your shop profile while we process your application. <br>
-                Once done with shop profile update. Your account will be activated.</p><br><br>
+                <b>Once done with shop profile update. Your account will be activated</>.</p><br><br>
+
+                <div style="padding: 20px;">
+                <p><a class="link__btn" style="padding: 14px; font-size: 18px; background-color:#848484; border-radius: 8px; display: block; color: #ffffff; text-align: center; text-decoration: none; cursor: pointer"  href="https://bts-app.co.za/activate.php?id=' . $shop_encode_id . '">Activate Shop Admin Account</a></p>
+                </div>
+
+                <div style="padding: 40px 0; font-size: 12px; color: #999999; border-top:1px solid #e2e2e2">
+                <h2 style="font-size: 14px; padding: 0; line-height: 1em; margin: 0; font-weight: 500">&copy;2020 Kasi Mall online</h2>
+                <p style="padding: 20px 0 0; font-size: 11px; font-weight: 200">|
+                <a href="#" style="padding: 0 8px; color: #0000ff">Tearms & Condtions</a>
+                </p>
+                </div>
+                </div>
+                </div>
 
 
-                <p><a href="https://bts-app.co.za/customer/activate.php?id=' . $shop_encode_id . '">Activate Shop Admin Account</a></p>
                 <p><strong>&copy;2020 Kasi Mall online</strong></p>
                 </body>
                 </html>';
@@ -122,8 +142,6 @@ if (isset($_POST['registerShop'], $_POST['token'])) {
         //Throw and error
         $result = flashMessage("This request originates from an unknown source. Possible attack");
     }
-
-
 }
 
 

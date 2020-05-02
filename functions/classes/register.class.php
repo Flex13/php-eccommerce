@@ -12,7 +12,7 @@ if (isset($_POST['register'], $_POST['token'])) {
         $form_errors = array();
 
         //Form validation to be passed to function of check_empty_fields();
-        $required_fields = array('Username', 'Name', 'Surname', 'Email', 'Contact','Gender', 'Province', 'City', 'Password');
+        $required_fields = array('Username', 'Name', 'Surname', 'Email', 'Contact', 'Gender', 'Province', 'City', 'Password');
 
         //call the function to check empty field and merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
@@ -88,13 +88,34 @@ if (isset($_POST['register'], $_POST['token'])) {
 
                     //prepare email body
                     $mail_body = '<html>
-                <body style="background-color:#CCCCCC; color:#000; font-family: Arial, Helvetica, sans-serif;
-                                    line-height:1.8em;">
-                <h2>Kasi Mall Online - Account Acctivation</h2>
-                <p>Dear ' . $name . '<br><br>Thank you for registering, please click on the link below to
+                    <style type="text/css">
+                        .link__btn:hover {
+                            background-color: #00c551 !important
+                        }
+                    </style>
+                    <div style="background-color: #FF8800; padding: 20px 0; margin:0">
+                    <div style="max-width:600px; margin:0 auto; padding: 40px; background:#ffffff; font-size: 14px; border:1px solid #cccccc; border-radius: 4px; font-family: arial,sans-serif; line-height: 1.7em; color: #555555">
+                    
+
+                <h2 style="font-weight:600; color: #FF8800;">Kasi Mall Online - Account Activation</h2>
+                <div>
+                <p>Hi <b> ' . $name . '</b><br><br>Thank you for registering, please click on the link below to
                     confirm your email address</p>
-                <p><a href="https://bts-app.co.za/activate.php?id=' . $encode_id . '"> Confirm Email</a></p>
-                <p><strong>&copy;2020 Kasi Mall online</strong></p>
+                </div>
+
+                <div style="padding: 20px;">
+                <p><a class="link__btn" style="padding: 14px; font-size: 18px; background-color:#848484; border-radius: 8px; display: block; color: #ffffff; text-align: center; text-decoration: none; cursor: pointer" href="https://bts-app.co.za/activate.php?id=' . $encode_id . '"> Confirm Email</a></p>
+                </div>
+
+                <div style="padding: 40px 0; font-size: 12px; color: #999999; border-top:1px solid #e2e2e2">
+                <h2 style="font-size: 14px; padding: 0; line-height: 1em; margin: 0; font-weight: 500">&copy;2020 Kasi Mall online</h2>
+                <p style="padding: 20px 0 0; font-size: 11px; font-weight: 200">
+                <a href="#" style="padding: 0 8px; color: #0000ff">Tearms & Condtions</a>
+                </p>
+                </div>
+                </div>
+                </div>
+                
                 </body>
                 </html>';
 

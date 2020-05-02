@@ -50,6 +50,12 @@
                     }
                     ?>
 
+<?php
+                    if (isset($_GET['publish_acc'])) {
+                        include("shopprofile/publish.php");
+                    }
+                    ?>
+
 
                 </div>
                 <!-- STORE END -->

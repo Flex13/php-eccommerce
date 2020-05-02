@@ -185,3 +185,21 @@ input[type=submit]:hover {
   transition: all 0.3s;
 
 }
+
+
+button.button-psswd  {
+    font-size: 15px;
+	font-style: italic;
+	height: 35px;
+	border: none;
+	background: transparent;
+	margin: 0;
+    padding: 0;
+    color: red;
+}
+
+a.link {
+    color: red;
+    margin: 15px 0px;
+    font-weight: 500;
+}

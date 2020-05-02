@@ -312,6 +312,7 @@ function isValidImage($file){
         case 'gif';
         case 'bmp';
         case 'png';
+        case 'jpeg';
 
         return $form_errors;
     }

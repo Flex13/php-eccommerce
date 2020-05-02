@@ -30,6 +30,7 @@
                                                 echo "active";
                                             } ?>" href="my_account.php?change_pass"><i class="fas fa-key"></i> Change Password</a>
                 </li>
+                
                 <li>
                     <a class="profile-menu" href="my_account.php?publish_acc"><i class="fas fa-upload"></i> Publish Shop</a>
                 </li>

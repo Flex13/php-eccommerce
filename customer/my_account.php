@@ -90,7 +90,7 @@ include("functions/functions.php");
 
 <?php else : ?>
     <?php
-    $_SESSION["errorMessage"] =  "Please login first to view account page";
+    $_SESSION["errorMessage"] =  "Login first to view iAccount. Don't have an account. Please create an account . ";
     echo "<script>window.open('../login.php','_self')</script>";
     ?>
 <?php endif ?>

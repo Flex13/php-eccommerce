@@ -81,13 +81,30 @@
 					<div class="col-sm-12 col-md-8  col-lg-5 justify-content-center">
 
 						<ul class="header-links text-center"><i class="hide"><?php echo guard(); ?></i>
-							<li><a href="#"><i class="fa fa-user-circle"></i>
-									<?php if (!isset($_SESSION['c_email'])) : ?>
-										Welcome: Guest
-									<?php else : ?>
-										Welcome: <?php echo $_SESSION['c_username']; ?>
-									<?php endif ?>
-								</a></li>
+							<li>
+								<?php if (!isset($_SESSION['c_email'])) : ?>
+									<i class="fa fa-user-circle"></i> Welcome: Guest
+								<?php else : ?>
+									<i class="fa fa-user-circle"></i> Welcome: <?php echo $_SESSION['c_username']; ?>
+								<?php endif ?>
+							</li>
+
+							<li>
+								<?php if (!isset($_SESSION['c_email'])) : ?>
+									<a href="../login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
+								<?php else : ?>
+									<a href="../logout.php"><i class="fas fa-sign-in-alt"></i> Logout</a>
+
+								<?php endif ?>
+							</li>
+
+							<li>
+								<?php if (!isset($_SESSION['c_email'])) : ?>
+									<a href="../customer_register.php"><i class="fas fa-user-plus"></i> Register</a>
+								<?php else : ?>
+
+								<?php endif ?>
+							</li>
 						</ul>
 
 					</div>
@@ -143,13 +160,30 @@
 							</form>
 						</div>
 						<ul class="header-links text-center"><i class="hide"><?php echo guard(); ?></i>
-							<li><a href="#"><i class="fa fa-user-circle"></i>
-									<?php if (!isset($_SESSION['c_email'])) : ?>
-										Welcome: Guest
-									<?php else : ?>
-										Welcome: <?php echo $_SESSION['c_username']; ?>
-									<?php endif ?>
-								</a></li>
+							<li>
+								<?php if (!isset($_SESSION['c_email'])) : ?>
+									<i class="fa fa-user-circle"></i> Welcome: Guest
+								<?php else : ?>
+									<i class="fa fa-user-circle"></i> Welcome: <?php echo $_SESSION['c_username']; ?>
+								<?php endif ?>
+							</li>
+
+							<li>
+								<?php if (!isset($_SESSION['c_email'])) : ?>
+									<a href="../login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
+								<?php else : ?>
+									<a href="../logout.php"><i class="fas fa-sign-in-alt"></i> Logout</a>
+
+								<?php endif ?>
+							</li>
+
+							<li>
+								<?php if (!isset($_SESSION['c_email'])) : ?>
+									<a href="../customer_register.php"><i class="fas fa-user-plus"></i> Register</a>
+								<?php else : ?>
+
+								<?php endif ?>
+							</li>
 						</ul>
 
 					</div>
