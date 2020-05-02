@@ -20,7 +20,7 @@ if (isset($_POST['deleteProduct'], $_POST['token'])) {
             $db->exec("DELETE FROM products WHERE product_id = $cat_product_id LIMIT 1");
             $result = flashMEssage("Delete Successfull", "Pass");
             $_SESSION['successMessage'] = "Product Deleted";
-            echo "<script>window.open('/merchant/products.php?products=ZW5jb2RldXNlcmlkMQ==','_self')</script>";
+            echo "<script>window.open('/Merchant/products.php?products=ZW5jb2RldXNlcmlkMQ==','_self')</script>";
 
         } catch (PDOException $ex) {
             $result = flashMessage("An Error Occurred" . $ex->getMessage());

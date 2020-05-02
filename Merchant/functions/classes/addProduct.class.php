@@ -122,7 +122,7 @@ if ((isset($_SESSION['m_id']) || isset($_GET['addproducts'])) && !isset($_POST['
                 if ($statement->rowcount() == 1) {
                     $result = flashMessage("Product Added", "Pass");
                     $_SESSION['successMessage'] = "Product Added";
-                    echo "<script>window.open('/merchant/products.php?products=ZW5jb2RldXNlcmlkMQ==','_self')</script>";
+                    echo "<script>window.open('/Merchant/products.php?products=ZW5jb2RldXNlcmlkMQ==','_self')</script>";
                 }
             } catch (PDOException $ex) {
                 $result = flashMessage("An Error Occerred" . $ex->getMessage());

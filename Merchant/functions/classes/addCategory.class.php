@@ -73,7 +73,7 @@ if ((isset($_SESSION['m_id']) || isset($_GET['addcategories'])) && !isset($_POST
                 if ($statement->rowcount() == 1) {
                     $result = flashMEssage("Category Added", "Pass");
                     $_SESSION['successMessage'] = "Category Added";
-                    echo "<script>window.open('/merchant/category.php?categories=ZW5jb2RldXNlcmlkMQ==','_self')</script>";
+                    echo "<script>window.open('/Merchant/category.php?categories=ZW5jb2RldXNlcmlkMQ==','_self')</script>";
                 }
             } catch (PDOException $ex) {
                 $result = flashMessage("An Error Occerred" . $ex->getMessage());
